@@ -1,0 +1,129 @@
+
+'use strict';
+console.log('entering playerStorage.js');
+var AWS = require("aws-sdk");
+var util = require('util');
+
+var playerStorage = (function () {
+    // var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+	var dynamodb = new AWS.DynamoDB();
+	
+//var matchKeeperPlayersTable = 'MatchKeeperPlayers'; // FOR PRODUCTION
+var matchKeeperPlayersTable = 'MatchKeeperPlayers-Dev'; // FOR DEVELOPMENT	
+	
+/*
+DON'T SAVE ANY GAME STAT DATA IN PLAYER TABLE, ONLY THINGS LIKE DOB, ADDRESS, NAME, CREDIT CARD?, RECORDED NAME .MP3
+GET ALL GAME STAT DATA FROM QUERIES OF THE MATCH TABLE.
+*/
+
+    /*
+     * The Player class stores all Player info
+     */
+    function Player(session, loadedPlayer) {
+    	console.log('entering Player function');
+		//console.log('this.data entering Player function = ' + this.data);
+        if (loadedPlayer) {
+            this.data = loadedPlayer;
+            console.log('successfully passed loadedPlayer data in: ' + JSON.stringify(this.data));
+        } else { // no existing player passed in, must be a call from newPlayer
+			console.log('no existing player passed in, must be a call from newPlayer');
+
+			var newPlayerData = {
+					Phone: 		{ N: session.attributes.newPlayerPhone}, 
+					TopicARN: 	{ S: "TBD" }		
+			};	
+
+			this.data = newPlayerData;			
+            console.log('no match data passed in. New Player data being established = ' + JSON.stringify(this.data));
+		};
+		console.log('exiting Player function');
+    };
+
+
+    Player.prototype = {
+        save: function (session, callback) {
+            console.log('entering Player.prototype save function');
+			
+		if (session) {
+			//console.log ('session in player save function = ' + JSON.stringify(session)); // see if session is populated
+			console.log('session.attributes.newPlayerPhone = ' + session.attributes.newPlayerPhone);
+		};
+	
+
+		dynamodb.putItem({
+
+				TableName: matchKeeperPlayersTable, 
+				Item: {
+                    Phone: {
+                        N: this.data.Phone.N 
+                    },				
+                    TopicARN: {
+                        S: this.data.TopicARN.S 
+                    }
+				
+                }
+            }, function (err, data) {
+                if (err) {
+                    console.log(err, err.stack);
+                }
+                if (callback) {
+                    callback();
+                }				
+            });         
+            console.log('exiting Player.prototype save function');
+        }
+    };
+
+    return {
+        loadPlayer: function (session, callback) {
+            console.log('entering playerStorage.loadPlayer function');
+			console.log('session.attributes.phoneKey = ' + session.attributes.phoneKey)
+            if (session.attributes.currentPlayers) {
+                console.log('Existing session has the player data, so getting it from session = ' + JSON.stringify(session.attributes.currentPlayers));
+                callback(new Player(session, session.attributes.currentPlayers));
+                return;
+            }             
+			console.log('Existing session does not have the player data, so getting it from DynamoDB data store');
+
+
+			var params = {
+				TableName: matchKeeperPlayersTable,
+				Key: {
+						Phone: 	{ N: session.attributes.phoneKey }   			
+						//DOB: 	{ S: dob }
+				}
+			};
+						  
+			dynamodb.getItem(params, function(err, data) {
+                var newLoadedPlayer;  
+                if (err) {
+                	console.log('there was an error in loadPlayer function, info follows: ');
+                    console.log(err, err.stack);
+					newLoadedPlayer = 'errorLoadingPlayer';
+                    callback(newLoadedPlayer); 
+                } else if (data.Item === undefined) {
+                	console.log('Data was loaded from DynamoDB without error, but no Item was found matching the criteria');
+					newLoadedPlayer = 'playerNotFound';
+                    callback(newLoadedPlayer); 
+                } else { 				
+                    newLoadedPlayer = new Player( session, data.Item );
+					console.log('util.inspect of newLoadedPlayer = ' + util.inspect(newLoadedPlayer) );					
+					console.log('newLoadedPlayer.data = ' + JSON.stringify(newLoadedPlayer.data));
+					console.log('util.inspect of session = ' + util.inspect(session) );
+						
+                    //session.attributes.newLoadedPlayer = newLoadedPlayer.data;
+                    callback(newLoadedPlayer);
+                }
+            });
+        },
+        newPlayer: function (session, callback) { // this is where we will register a new player and set all stats to 0.
+			console.log('entering NewPlayer function' );
+			var newRegPlayer = new Player( session );
+			console.log('newRegPlayer variable from newPlayer = ' + JSON.stringify(newRegPlayer, null, 2) );
+            callback(newRegPlayer);
+			console.log('exiting NewPlayer function' );
+        }
+    };
+})();
+console.log('exiting playerStorage.js');
+module.exports = playerStorage;
