@@ -82,6 +82,65 @@ var params = {
     ],
     
     "GlobalSecondaryIndexes": [
+
+
+		
+        {
+            IndexName: "Red1PlayerIDIndex",
+            KeySchema: [
+                {AttributeName: "Red1PlayerID", KeyType: "HASH"},  //Partition key
+
+            ],
+            Projection: {
+                "ProjectionType": "ALL"
+            },
+            ProvisionedThroughput: {
+                "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+            }
+        },
+        {
+            IndexName: "Blue1PlayerIDIndex",
+            KeySchema: [
+                {AttributeName: "Blue1PlayerID", KeyType: "HASH"},  //Partition key
+
+            ],
+            Projection: {
+                "ProjectionType": "ALL"
+            },
+            ProvisionedThroughput: {
+                "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+            }
+        },
+        {
+            IndexName: "RedDoublesPartnerIndex",
+            KeySchema: [
+                {AttributeName: "Red1PlayerID", KeyType: "HASH"},  //Partition key
+                {AttributeName: "Red21PlayerID", KeyType: "RANGE"},  //Sort key
+            ],
+            Projection: {
+                "ProjectionType": "ALL"
+            },
+            ProvisionedThroughput: {
+                "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+            }
+        },
+        {
+            IndexName: "BlueDoublesPartnerIndex",
+            KeySchema: [
+                {AttributeName: "Blue1PlayerID", KeyType: "HASH"},  //Partition key
+                {AttributeName: "Blue2PlayerID", KeyType: "RANGE"},  //Sort key
+            ],
+            Projection: {
+                "ProjectionType": "ALL"
+            },
+            ProvisionedThroughput: {
+                "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
+            }
+        }
+
+	
+	
+		/***************** change to this once it works without time, then add time
         {
             IndexName: "SinglesOpponentIndex",
             KeySchema: [
@@ -122,10 +181,10 @@ var params = {
             }
         },
         {
-            IndexName: "Blue1andTimeIndex",
+            IndexName: "RedDoublesPartnerIndex",
             KeySchema: [
-                {AttributeName: "Blue1PlayerID", KeyType: "HASH"},  //Partition key
-                {AttributeName: "MatchStartTime", KeyType: "RANGE"},  //Sort key
+                {AttributeName: "Red1PlayerID", KeyType: "HASH"},  //Partition key
+                {AttributeName: "Red21PlayerID", KeyType: "RANGE"},  //Sort key
             ],
             Projection: {
                 "ProjectionType": "ALL"
@@ -135,10 +194,10 @@ var params = {
             }
         },
         {
-            IndexName: "Blue2andTimeIndex",
+            IndexName: "BlueDoublesPartnerIndex",
             KeySchema: [
-                {AttributeName: "Blue2PlayerID", KeyType: "HASH"},  //Partition key
-                {AttributeName: "MatchStartTime", KeyType: "RANGE"},  //Sort key
+                {AttributeName: "Blue1PlayerID", KeyType: "HASH"},  //Partition key
+                {AttributeName: "Blue2PlayerID", KeyType: "RANGE"},  //Sort key
             ],
             Projection: {
                 "ProjectionType": "ALL"
@@ -146,7 +205,9 @@ var params = {
             ProvisionedThroughput: {
                 "ReadCapacityUnits": 1,"WriteCapacityUnits": 1
             }
-        } 		
+        }
+		*/
+		
     ],    
     ProvisionedThroughput: {       
         ReadCapacityUnits: 1, 

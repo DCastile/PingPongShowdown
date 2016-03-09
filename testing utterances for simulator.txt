@@ -1,0 +1,19 @@
+
+start a new singles match with blue serve
+red score five blue score six
+point red
+
+add four two five eight nine zero eight four eight four to the red team
+add three one five six two four five four zero zero to the blue team
+
+give me a summary of the match
+text me the summary
+
+
+start a new doubles match with blue serve
+skip sign in
+red score five blue score six
+point red
+
+play a tiebreaker
+change to red serve
