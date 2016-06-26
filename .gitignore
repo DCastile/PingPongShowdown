@@ -39,6 +39,8 @@ ECSconfig.json
 creds.py
 *.crt
 *.key
+RPI/creds.py
+
 
 
 
