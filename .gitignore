@@ -36,7 +36,7 @@ node_modules
 config.json
 AWSconfig.json
 ECSconfig.json
-/**/creds.py
+**/creds.py
 *.crt
 *.key
 
