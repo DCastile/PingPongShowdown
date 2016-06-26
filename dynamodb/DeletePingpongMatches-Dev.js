@@ -8,7 +8,7 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName: "MatchKeeperPlayers-Dev"
+    TableName: "PingpongMatches-Dev"
 };
 
 dynamodb.deleteTable(params, function(err, data) {

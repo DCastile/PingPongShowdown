@@ -3,49 +3,57 @@
 console.log('entering eventHandlers.js');
 
 var matchStorage = require('./matchStorage'),
-	playerStorage = require('./playerStorage'),
-	AlexaSkill = require('./AlexaSkill'),	
+	AlexaSkill = require('./AlexaSkill'),
     textHelper = require('./textHelper');
-	//playerSMS = require('./playerSMS');
+
     
 var registerEventHandlers = function (eventHandlers, skillContext) {
 	
     eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-        //if user said a one shot command that triggered an intent event,
-        //it will start a new session, and then we should avoid speaking too many words.
-        //skillContext.needMoreHelp = false; 
 		session.new = false
 		//console.log( 'session from eventhandlers = ' + JSON.stringify(session) );
-		//console.log( 'skillContext from eventhandlers = ' + JSON.stringify(skillContext) );
     };
 
     eventHandlers.onLaunch = function (launchRequest, session, response) {
-        //Speak welcome message and ask user question if they didn't specify a command
-        //based on whether there are players or not.
         console.log('entering onLaunch');
+		//console.log("Match Keeper onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+		
         matchStorage.loadMatch(session, function (currentMatch) {
-			console.log("Match Keeper onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-            var textToSay = '',
-                repromptTextToSay;    
 			
-			textToSay += 'You can start a match, or ' 
-			textToSay += 'hear more things you can say. What would you like?';
-			repromptTextToSay = 'Would you like to start a match, or hear more things?'
+			if (typeof(currentMatch) == 'string') { // there is not an active match right now, so create a new one
 
-//			repromptTextToSay = 'Welcome players. You can start a match, or ' 
-//			repromptTextToSay += 'hear more things you can say. What would you like to do?';
+				var textToSay = 'You can start a new match or ask, what are my options?';
+				var repromptTextToSay = 'Would you like to start a new match or hear other options?';	
 
-			var speechOutput = {
-				speech: '<speak>' + textToSay + '</speak>',
-				type: AlexaSkill.speechOutputType.SSML
-			};
-			var repromptOutput = {
-				speech: '<speak>' + repromptTextToSay + '</speak>',
-				type: AlexaSkill.speechOutputType.SSML
-			};
-			response.ask(speechOutput, repromptOutput);			
+				var speechOutput = {
+					speech: '<speak>' + textToSay + '</speak>',
+					type: AlexaSkill.speechOutputType.SSML
+				};
+				var repromptOutput = {
+					speech: '<speak>' + repromptTextToSay + '</speak>',
+					type: AlexaSkill.speechOutputType.SSML
+				};
+				response.ask(speechOutput, repromptOutput);							
+				console.log('exiting onLaunch');
+					
+										
+			} else { // there is an active match	
 			
-            console.log('exiting onLaunch');
+				var textToSay = 'There is a match in progress. You can ask, what are my options?';
+				var repromptTextToSay = 'If you\'re stuck, say, what are my options.';	
+
+				var speechOutput = {
+					speech: '<speak>' + textToSay + '</speak>',
+					type: AlexaSkill.speechOutputType.SSML
+				};
+				var repromptOutput = {
+					speech: '<speak>' + repromptTextToSay + '</speak>',
+					type: AlexaSkill.speechOutputType.SSML
+				};
+				response.ask(speechOutput, repromptOutput);							
+				console.log('exiting onLaunch');
+					
+			}													
         });
     };
 };

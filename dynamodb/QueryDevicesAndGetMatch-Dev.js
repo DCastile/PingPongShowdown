@@ -16,7 +16,7 @@ var fourHoursAgo = 1;
 
 var queryDevicesParams = {
 
-	TableName : "MatchKeeperDevices-Dev", 
+	TableName : "PingpongDevices-Dev", 
 	ConsistentRead: true,
 	KeyConditionExpression: "EchoUserID = :EchoUserID AND MatchStartTime BETWEEN :fourHoursAgo AND :rightNow",
 	ExpressionAttributeValues: {
@@ -37,7 +37,7 @@ docClient.query(queryDevicesParams, function (err, data) {
 		var startTimeKey = data.Items[data.Count - 1].MatchStartTime;
 
 		var params = {
-			TableName: 'MatchKeeperMatches-Dev',
+			TableName: 'PingpongMatches-Dev',
 			Key: {
 					"MatchStartTime": 	startTimeKey,
 					"EchoUserID": 		echoUserID		

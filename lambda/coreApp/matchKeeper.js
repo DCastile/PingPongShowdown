@@ -6,7 +6,7 @@ var AlexaSkill = require('./AlexaSkill'),
     intentHandlers = require('./intentHandlers');
 
 // var APP_ID = "amzn1.echo-sdk-ams.app.4cd0a8f9-ba04-409f-8fd1-27b329e4e9e1";// Tennis MatchManager PRODUCTION app ID
-var APP_ID = "amzn1.echo-sdk-ams.app.365030f7-72a5-4ed6-ad04-8aaf30201be3";// Tennis MatchManager DEVELOPMENT app ID
+var APP_ID = "amzn1.echo-sdk-ams.app.8cbbec55-1a6a-4eaf-b2f8-c898f8a6be37";// PingPong MatchManager DEVELOPMENT app ID
 var skillContext = {};
 
 var MatchKeeper = function () {

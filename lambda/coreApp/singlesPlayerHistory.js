@@ -3,14 +3,15 @@ console.log('entering singlesPlayerHistory.js');
 var AWS = require("aws-sdk"),
 	async = require("async");
 
+
 var singlesPlayerHistory = (function () {
 
     return {
         getSinglesPlayerHistory: function (session, callback) {
 			console.log('entering playerHistory.getPlayerHistory function');			
 
-			//var matchKeeperMatchesTable = 'MatchKeeperMatches'; // FOR PRODUCTION
-			var matchKeeperMatchesTable = 'MatchKeeperMatches-Dev'; // FOR DEVELOPMENT		
+			//var PingpongMatchesTable = 'PingpongMatches'; // FOR PRODUCTION
+			var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT		
 			var docClient = new AWS.DynamoDB.DocumentClient();
 			var playerKey = parseInt(session.attributes.phoneKey);
 			console.log('playerKey = ' + playerKey);
@@ -27,7 +28,7 @@ var singlesPlayerHistory = (function () {
 						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
 						var rightNow = new Date().getTime();
 						var params = {				
-							TableName: matchKeeperMatchesTable,
+							TableName: PingpongMatchesTable,
 							IndexName: "Red1PlayerIDIndex", 
 							KeyConditionExpression: "Red1PlayerID = :PlayerID1 AND MatchStartTime BETWEEN :startOfRange AND :rightNow",
 							ExpressionAttributeValues: {
@@ -53,7 +54,7 @@ var singlesPlayerHistory = (function () {
 						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
 						var rightNow = new Date().getTime();
 						var params = {				
-							TableName: matchKeeperMatchesTable,
+							TableName: PingpongMatchesTable,
 							IndexName: "Blue1PlayerIDIndex",
 							KeyConditionExpression: "Blue1PlayerID = :PlayerID1 AND MatchStartTime BETWEEN :startOfRange AND :rightNow",
 							ExpressionAttributeValues: {

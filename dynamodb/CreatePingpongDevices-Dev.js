@@ -8,7 +8,7 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : "MatchKeeperDevices-Dev",
+    TableName : "PingpongDevices-Dev",
     KeySchema: [       
         { AttributeName: "EchoUserID", KeyType: "HASH" },  //Partition key
         { AttributeName: "MatchStartTime", KeyType: "RANGE" }  //Sort key

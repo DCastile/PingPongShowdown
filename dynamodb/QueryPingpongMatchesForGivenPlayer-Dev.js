@@ -1,4 +1,4 @@
-﻿console.log("Querying MatchKeeperTable-Dev");
+﻿console.log("Querying PingpongTable-Dev");
 var AWS = require("aws-sdk"),
 	async = require("async");
 
@@ -8,11 +8,11 @@ AWS.config.update({
   endpoint: "https://dynamodb.us-east-1.amazonaws.com"
 });
 
-var phone = 4258908484;
+var phone = 8484;
 
 
 //var matchKeeperMatchesTable = 'MatchKeeperMatches'; // FOR PRODUCTION
-var matchKeeperMatchesTable = 'MatchKeeperMatches-Dev'; // FOR DEVELOPMENT		
+var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT		
 var docClient = new AWS.DynamoDB.DocumentClient();
 var rawStats = [];
 
@@ -22,7 +22,7 @@ async.parallel([
 	function(callback) {
 
 		var params = {				
-			TableName: matchKeeperMatchesTable,
+			TableName: PingpongMatchesTable,
 			IndexName: "Red1PlayerIDIndex",
 			KeyConditionExpression: "Red1PlayerID = :PlayerID1",    
 			ExpressionAttributeValues: {
@@ -44,7 +44,7 @@ async.parallel([
 	function(callback) {
 
 		var params = {				
-			TableName: matchKeeperMatchesTable,
+			TableName: PingpongMatchesTable,
 			IndexName: "Blue1PlayerIDIndex",
 			KeyConditionExpression: "Blue1PlayerID = :PlayerID1",    
 			ExpressionAttributeValues: {

@@ -1,4 +1,4 @@
-﻿console.log("Querying MatchKeeperMatches for matches captured in a given Echo UserID session");
+﻿console.log("Querying PingpongMatches for matches captured in a given Echo UserID session");
 var AWS = require("aws-sdk");
 
 AWS.config.update({
@@ -18,7 +18,7 @@ console.log('four hours ago: ' + new Date(fourHoursAgo) );
 
 
 var params = {
-    TableName : "MatchKeeperMatches-Dev",
+    TableName : "PingpongMatches-Dev",
     KeyConditionExpression: "EchoUserID = :EchoUserID AND MatchStartTime BETWEEN :fourHoursAgo AND :rightNow",
     ExpressionAttributeValues: {
         ":EchoUserID": { "S": echoUserID , },

@@ -12,7 +12,7 @@ var phone = 2222222222;
 var dob = "8-9-68";
 
 var params = {
-    TableName: "MatchKeeperPlayers-Dev",
+    TableName: "PingpongPlayers-Dev",
                 Item: {                  
                     "Phone": 	{ "N": JSON.stringify(phone) }
                     //"DOB":		{ "S": dob }

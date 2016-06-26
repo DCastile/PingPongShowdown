@@ -11,11 +11,11 @@ var matchStorage = (function () {
  
 	var docClient = new AWS.DynamoDB.DocumentClient();
 	
-	//var matchKeeperMatchesTable = 'MatchKeeperMatches'; // FOR PRODUCTION
-	var matchKeeperMatchesTable = 'MatchKeeperMatches-Dev'; // FOR DEVELOPMENT	
+	//var PingpongMatchesTable = 'PingpongMatches'; // FOR PRODUCTION
+	var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT	
 	
-	//var matchKeeperDevicesTable = 'MatchKeeperDevices'; // FOR PRODUCTION
-	var matchKeeperDevicesTable = 'MatchKeeperDevices-Dev'; // FOR DEVELOPMENT	
+	//var PingpongDevicesTable = 'PingpongDevices'; // FOR PRODUCTION
+	var PingpongDevicesTable = 'PingpongDevices-Dev'; // FOR DEVELOPMENT	
 
     /*
      * The Match class stores all match states
@@ -41,75 +41,63 @@ var matchStorage = (function () {
 					Blue1: "TBD",
 					Blue2: "TBD"
             };
+			
+			var playerName = {	
+					Red1: "TBD",
+					Red2: "TBD",
+					Blue1: "TBD",
+					Blue2: "TBD"
+            };			
 
-			var serveSequence = [];	// specific serve sequence will be set by players, e.g. alpha, charlie, bravo, delta			
+			var serveSequence = [],	// specific serve sequence will be set by players, e.g. alpha, yankee, bravo, zulu
+				newAfterPointJokes = [], // an array of index numbers for 'endOfPoint' jokes that have not yet been used in this match
+				newAfterGameJokes = [] // an array of index numbers for 'endOfGame' jokes that have not yet been used in this match
 		
 			var newMatchScores = {	
 					RedTeamGameScore: 0, // red team's score in the current game being played
 					BlueTeamGameScore: 0, // blue team's score in the current game being played
+					Game: 1, // the current game being played, 1-5, best 3 out of 5 is the winner
+					Game1Score: "0 0", // set to format the score correctly based on winning team called out first
+					Game2Score: "0 0", // set to format the score correctly based on winning team called out first
+					Game3Score: "0 0", // set to format the score correctly based on winning team called out first
+					Game4Score: "0 0", // set to format the score correctly based on winning team called out first
+					Game5Score: "0 0", // set to format the score correctly based on winning team called out first
+					PointsToServe: 5, // specifies how many points should be served by each team before serve rotates to the other team, official rules call for 2
 					ExperiencedUserMode: false, // flag to indicate whether minimal words should be spoken. Default = false	
 					SwitchSides: true, // flag to indicate whether players want to switch sides during the match. Default = true
-					PlayGamePoint: false, // flag to indicate whether players want to play No Ad scoring or not. Default = false
 					AnnounceServe: true, // flag to indicate whether or not to announce who's serve it is when starting a new game
 					AnnounceScore: true, // flag to indicate whether or not to announce the score when starting a new game
-					RedTeamSetScore: 0, // red team's score in the current set, increments for each game won in the set
-					BlueTeamSetScore: 0, // blue team's score in the current set, increments for each game won in the set
-					RedTeamSetsWon: 0, // increments for each set won by red
-					BlueTeamSetsWon: 0,	// increments for each set won by blue				
-					Set: 1, // keeps track of the current set
-					Set1Score: "0 0", // set to format the score correctly based on winning team called out first
-					Set2Score: "0 0", // set to format the score correctly based on winning team called out first
-					Set3Score: "0 0", // set to format the score correctly based on winning team called out first
 					RedTeamTotalPointsWon: 0, // increments for every point won in the match by red
 					BlueTeamTotalPointsWon: 0, // increments for every point won in the match by blue
 					RedPointsServed: 0, // increments for every point served by red
 					BluePointsServed: 0, // increments for every point served by blue
-					RedGamesServed: 0, // increments for every game served by red
-					BlueGamesServed: 0, // increments for every game served by blue
 					RedPointsWonOnServe: 0, // increments for every point won in the match when serving
 					RedPointsWonOffServe: 0, // increments for every point won in the match when not serving
 					BluePointsWonOnServe: 0, // increments for every point won in the match when serving
 					BluePointsWonOffServe: 0, // increments for every point won in the match when not serving
-					RedGamesWonOnServe: 0, // increments for every game won by red when red was serving
-					BlueGamesWonOnServe: 0, // increments for every game won by blue when blue was serving
 					RedTeamTotalGamesWon: 0, // increments for every game won in the match by red
 					BlueTeamTotalGamesWon: 0, // increments for every game won in the match	by blue							
-					WhosServe: "TBDServer", // set to whoever is currently serving
-					MatchWinner: "TBDWinner", // stores the winner of the match
+					WhosServe: "TBDServer", // set to whoever is currently serving, either 'red' or 'blue'
+					MatchWinner: 0, // stores the winner of the match
 					PlayerAlias: playerNameAlias, // correlates doubles players signed in to a given match with the call signs they are assigned
+					PlayerName: playerName, // names of players signed in to the match
 					FirstRedToServe: "AlphaOrBravo", // first to serve in a match on the red team, set by players
-					FirstBlueToServe: "CharlieOrDelta", // first to serve in a match on the blue team, set by players
+					FirstBlueToServe: "YankeeOrZulu", // first to serve in a match on the blue team, set by players
 					DoublesServeSequence: serveSequence, // the sequence of serve in a doubles match depending on player input
 					DoublesServer: "TBDDoublesServer", // set to the current server in a doubles match
 					ScoreLastUpdated: '0', // set after each point in order to keep track of total match play time
 					TimeOfFirstPoint: '0', // set after a team wins a point in a match in order to keep track of total match play time
-					BreakPoint: false, // flag to indicate whether it is break point or not
-					Deuce: false, // flag set when the score in a game reaches deuce in order to figure out whether 40-30 or add-in should be called.
-					Tiebreaker: false, // set if play in a set reaches 6-6, moves play to a 7 point tiebreaker
-					SuperTiebreaker: false, // set if players call for a 10 point super tiebreaker
-					SwitchSidesAfterTiebreak: false, // set if a tiebreak was just played, needed because must switch sides for next new new game 
-					TiebreakRedScore: 0, // keep track of tiebreaker score
-					TiebreakBlueScore: 0, // keep track of tiebreaker score
-					RedTiebreaksWon: 0, // stat to store for future analytics
-					BlueTiebreaksWon: 0, // stat to store for future analytics
-					TiebreakFirstToServe: "TBDServer", // set to who served first in a tiebreaker, needed because rotation continues from here 1st game of new set
-					GamePoints: 0, // increments for every game point played
-					GamesWonWithDeuce: 0, // increments for every game won where a deuce point was played
-					BreakPointsAgainstRed: 0, // increments for every break point when red is serving (blue has a chance to break red)
-					BreakPointsAgainstBlue: 0, // increments for every break point when blue is serving (red has a chance to break blue)					
-					RedBreakPointConversions: 0, // increments for every game won by red when it was a break point
-					BlueBreakPointConversions: 0, // increments for every game won by blue when it was a break point
-					RedBreakPointsSaved: 0, // increments for every point won by red when red was serving against a break point
-					BlueBreakPointsSaved: 0, // increments for every point won by blue when blue was serving against a break point
-					RedGamePointsWon: 0, // increments for every game point won by red
-					BlueGamePointsWon: 0, // increments for every game point won by blue
-					RedDeucePointsWon: 0, // increments for every game won by red that was at deuce point
-					BlueDeucePointsWon: 0, // increments for every game won by blue that was at deuce point	
+					TwentyOnePointer: false, // set if players call for a 21 point game	
 					RedPointStreak: 0, // increments when the current red point streak is extended
 					MaxRedPointStreak: 0, // increments when the max red point streak is extended
 					BluePointStreak: 0, // increments when the max blue point streak is extended	
 					MaxBluePointStreak: 0, // increments when the max blue point streak is extended
-					PointWinner: 'TBD' // used to refer back one point under nMinusOne to determine Point Streaks
+					PointWinner: 'TBD', // used to refer back one point under nMinusOne to determine Point Streaks
+					RallyForTheServe: false, // flag to indicate whether players are currently rallying to determine who serves first
+					SassMeter: 5, // specifies the likelyhood of making a comment after a point is played, between 0 (no sass) and 10 (a comment every time)
+					AfterPointJokes: newAfterPointJokes, // an array of index numbers for 'endOfPoint' jokes that have not yet been used in this match
+					AfterGameJokes: newAfterGameJokes, // an array of index numbers for 'endOfGame' jokes that have not yet been used in this match
+					GamesPerMatch: 1 // number of games per match, either 1 or 5 (best 3 out of 5)
 					
             };
 			
@@ -142,10 +130,10 @@ var matchStorage = (function () {
 			var currentMatchData = this.data;
 			
 			async.parallel([
-				// save to matchKeeperDevicesTable
+				// save to PingpongDevicesTable
 				function(callback) {
 					var params = {
-						TableName: matchKeeperDevicesTable,
+						TableName: PingpongDevicesTable,
 						Item: 		{                  
 										"EchoUserID": 		currentMatchData.EchoUserID, 
 										"MatchStartTime":	currentMatchData.MatchStartTime                    
@@ -154,18 +142,18 @@ var matchStorage = (function () {
 
 					docClient.put(params, function(err, data) {
 						if (err) {
-							console.log("Unable to save to matchKeeperDevicesTable. Error:", JSON.stringify(err, null, 2));
+							console.log("Unable to save to PingpongDevicesTable. Error:", JSON.stringify(err, null, 2));
 						} else {
-							console.log("Saved to matchKeeperDevicesTable:", JSON.stringify(data, null, 2));
+							console.log("Saved to PingpongDevicesTable:", JSON.stringify(data, null, 2));
 							callback();
 						};
 					});
 				},
 				
-				// save to matchKeeperMatchesTable
+				// save to PingpongMatchesTable
 				function(callback) {					
 					var params = {
-						TableName: matchKeeperMatchesTable,
+						TableName: PingpongMatchesTable,
 						Item:	{
 									"MatchStartTime": 		currentMatchData.MatchStartTime,
 									"ReadableStartTime": 	currentMatchData.ReadableStartTime,
@@ -182,9 +170,9 @@ var matchStorage = (function () {
 
 					docClient.put(params, function(err, data) {
 						if (err) {
-							console.log("Unable to save to matchKeeperMatchesTable. Error:", JSON.stringify(err, null, 2));
+							console.log("Unable to save to PingpongMatchesTable. Error:", JSON.stringify(err, null, 2));
 						} else {
-							console.log("Saved to matchKeeperMatchesTable:", JSON.stringify(data, null, 2));
+							console.log("Saved to PingpongMatchesTable:", JSON.stringify(data, null, 2));
 							callback();
 						};
 					});								
@@ -192,9 +180,9 @@ var matchStorage = (function () {
 				
 			], function(err) { //This function gets called after the two tasks have called their "task callbacks"
 					if (err) {
-						console.log("Unable to save to matchKeeperMatchesTable. Error:", JSON.stringify(err, null, 2));
+						console.log("Unable to save to PingpongMatchesTable. Error:", JSON.stringify(err, null, 2));
 					} else {
-						console.log("Successfully saved to both matchKeeperMatchesTable and matchKeeperDevicesTable:");
+						console.log("Successfully saved to both PingpongMatchesTable and PingpongDevicesTable:");
 					};
 					
 					if (callback) {
@@ -217,20 +205,19 @@ var matchStorage = (function () {
                 return;
             }
 			*/            
-			console.log('Existing session does not have the match data, so getting it from DynamoDB data store');
+			//console.log('Existing session does not have the match data, so getting it from DynamoDB data store');
 			var rightNow = new Date().getTime();
-			var fourHoursAgo = (new Date().getTime() - (40*60*60*1000) ); 	// will find a match if the match start time was within the last 4 hours
-																			// set to 40 hours for testing *********************************
-
+			var hoursAgo = (new Date().getTime() - (2*60*60*1000) ); 	// will find a match if the match start time was within the last 2 hours
+																			
 			var queryDevicesParams = {
 
-				TableName : matchKeeperDevicesTable, 
+				TableName : PingpongDevicesTable, 
 				ConsistentRead: true,
-				KeyConditionExpression: "EchoUserID = :EchoUserID AND MatchStartTime BETWEEN :fourHoursAgo AND :rightNow",
+				KeyConditionExpression: "EchoUserID = :EchoUserID AND MatchStartTime BETWEEN :hoursAgo AND :rightNow",
 				ExpressionAttributeValues: {
 					":EchoUserID": session.user.userId,
 					":rightNow": rightNow, 
-					":fourHoursAgo": fourHoursAgo       
+					":hoursAgo": hoursAgo       
 				}
 			};
 
@@ -243,7 +230,7 @@ var matchStorage = (function () {
 					currentMatch = 'errorLoadingMatch';
                     callback(currentMatch);
                 } else if (data.Items[data.Count - 1] === undefined) {
-                	console.log('Data was loaded from matchKeeperDevicesTable without error, but data.Items[data.Count - 1] was undefined');
+                	console.log('Data was loaded from PingpongDevicesTable without error, but data.Items[data.Count - 1] was undefined');
 					currentMatch = 'matchNotFound';
 					console.log('type of currentMatch = ' + typeof(currentMatch));
                     callback(currentMatch);
@@ -254,7 +241,7 @@ var matchStorage = (function () {
 										
 					var getMatchParams = {
 						
-						TableName: matchKeeperMatchesTable,
+						TableName: PingpongMatchesTable,
 						Key: {
 								"MatchStartTime": 	startTimeKey,
 								"EchoUserID": 		session.user.userId		
@@ -264,12 +251,12 @@ var matchStorage = (function () {
 					docClient.get(getMatchParams, function (err, data) {
 												
 						if (err) {
-							console.log('there was an error in Get to matchKeeperMatchesTable, info follows: ');
+							console.log('there was an error in Get to PingpongMatchesTable, info follows: ');
 							console.log(err, err.stack);
 							currentMatch = 'errorLoadingMatch';
 							callback(currentMatch);
 						} else if (data.Item === undefined) {
-							console.log('Data was loaded from matchKeeperMatchesTable without error, but data.Item was undefined');
+							console.log('Data was loaded from PingpongMatchesTable without error, but data.Item was undefined');
 							currentMatch = 'matchNotFound';
 							callback(currentMatch);
 						} else {

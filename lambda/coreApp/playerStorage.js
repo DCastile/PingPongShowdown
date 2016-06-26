@@ -8,13 +8,8 @@ var playerStorage = (function () {
     // var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 	var docClient = new AWS.DynamoDB.DocumentClient();
 	
-	//var matchKeeperPlayersTable = 'MatchKeeperPlayers'; // FOR PRODUCTION
-	var matchKeeperPlayersTable = 'MatchKeeperPlayers-Dev'; // FOR DEVELOPMENT	
-	
-	/*
-	DON'T SAVE ANY GAME STAT DATA IN PLAYER TABLE, ONLY THINGS LIKE DOB, ADDRESS, NAME, CREDIT CARD?, RECORDED NAME .MP3
-	GET ALL GAME STAT DATA FROM QUERIES OF THE MATCH TABLE.
-	*/
+	//var PingpongPlayersTable = 'PingpongPlayers'; // FOR PRODUCTION
+	var PingpongPlayersTable = 'PingpongPlayers-Dev'; // FOR DEVELOPMENT	
 
     /*
      * The Player class stores all Player info
@@ -28,15 +23,18 @@ var playerStorage = (function () {
         } else { // no existing player passed in, must be a call from newPlayer
 			console.log('no existing player passed in, must be a call from newPlayer');
 			
-			var matchPreferences = {	
+			var matchPreferences = {
+					TwentyOnePointer: false, // set if players call for a 21 point game
+					GamesPerMatch: 1, // number of games per match, either 1 or 5 (best 3 out of 5)
+					SassMeter: 5, // specifies the likelyhood of telling a joke after a point is played, between 0 (no jokes) and 10 (a joke every time)					
 					SwitchSides: true, // flag to indicate whether players want to switch sides during the match. Default = true
-					PlayGamePoint: false, // flag to indicate whether players want to play No Ad scoring or not. Default = false
-					ExperiencedUserMode: false // flag to indicate whether minimal words should be spoken. Default = false				
-					
+					AnnounceServe: true, // flag to indicate whether or not to announce who's serve it is when starting a new game
+					ExperiencedUserMode: false // flag to indicate whether minimal words should be spoken. Default = false								
             };			
 
 			var newPlayerData = {
 					Phone: 		parseInt(session.attributes.newPlayerPhone), 
+					Name:		session.attributes.newPlayerName.toLowerCase(),
 					TopicARN: 	"TBD",
 					Preferences: matchPreferences					
 			};	
@@ -57,12 +55,13 @@ var playerStorage = (function () {
 				console.log('session.attributes.newPlayerPhone = ' + session.attributes.newPlayerPhone);
 			};
 			
-			var table = matchKeeperPlayersTable;
+			var table = PingpongPlayersTable;
 
 			var params = {
 				TableName: table,
 				Item:	{
 							"Phone": 		this.data.Phone,
+							"Name":			this.data.Name,
 							"TopicARN": 	this.data.TopicARN,
 							"Preferences": 	this.data.Preferences
 				}																				
@@ -95,7 +94,7 @@ var playerStorage = (function () {
 
 			var params = {
 				
-				TableName: matchKeeperPlayersTable,
+				TableName: PingpongPlayersTable,
 				Key: {
 						Phone: 	parseInt(session.attributes.phoneKey) 			
 				}

@@ -9,8 +9,8 @@ var doublesTeamHistory = (function () {
         getDoublesTeamHistory: function (session, callback) {
 			console.log('entering doublesTeamHistory.getDoublesTeamHistory function');			
 
-			//var matchKeeperMatchesTable = 'MatchKeeperMatches'; // FOR PRODUCTION
-			var matchKeeperMatchesTable = 'MatchKeeperMatches-Dev'; // FOR DEVELOPMENT		
+			//var PingpongMatchesTable = 'MatchKeeperMatches'; // FOR PRODUCTION
+			var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT		
 			var docClient = new AWS.DynamoDB.DocumentClient();
 			var player1Key = parseInt(session.attributes.player1PhoneKey);
 			var player2Key = parseInt(session.attributes.player2PhoneKey);
@@ -29,7 +29,7 @@ var doublesTeamHistory = (function () {
 						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
 						var rightNow = new Date().getTime();
 						var params = {				
-							TableName: matchKeeperMatchesTable,
+							TableName: PingpongMatchesTable,
 							IndexName: "RedDoublesPartnerIndex", 
 							KeyConditionExpression: "Red1PlayerID = :Player1ID AND Red2PlayerID = :Player2ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow", 
 							ExpressionAttributeValues: {
@@ -56,7 +56,7 @@ var doublesTeamHistory = (function () {
 						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
 						var rightNow = new Date().getTime();
 						var params = {				
-							TableName: matchKeeperMatchesTable,
+							TableName: PingpongMatchesTable,
 							IndexName: "RedDoublesPartnerIndex", 
 							KeyConditionExpression: "Red1PlayerID = :Player2ID AND Red2PlayerID = :Player1ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow", 
 							ExpressionAttributeValues: {
@@ -84,7 +84,7 @@ var doublesTeamHistory = (function () {
 						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
 						var rightNow = new Date().getTime();
 						var params = {				
-							TableName: matchKeeperMatchesTable,
+							TableName: PingpongMatchesTable,
 							IndexName: "BlueDoublesPartnerIndex",
 							KeyConditionExpression: "Blue1PlayerID = :Player1ID AND Blue2PlayerID = :Player2ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow",  
 							ExpressionAttributeValues: {
@@ -111,7 +111,7 @@ var doublesTeamHistory = (function () {
 						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
 						var rightNow = new Date().getTime();
 						var params = {				
-							TableName: matchKeeperMatchesTable,
+							TableName: PingpongMatchesTable,
 							IndexName: "BlueDoublesPartnerIndex",
 							KeyConditionExpression: "Blue1PlayerID = :Player2ID AND Blue2PlayerID = :Player1ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow",  
 							ExpressionAttributeValues: {

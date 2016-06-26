@@ -12,7 +12,7 @@ var millisecs = 124;
 var echoUserID = "MyUserID2";
 
 var params = {
-    TableName: 'MatchKeeperMatches-Dev',
+    TableName: 'PingpongMatches-Dev',
 	Key: {
 			"MatchStartTime": 	millisecs,
 			"EchoUserID": 		echoUserID		

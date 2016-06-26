@@ -16,7 +16,7 @@ var fourHoursAgo = 1;
 
 var queryDevicesParams = {
 
-	TableName : "MatchKeeperDevices-Dev", 
+	TableName : "PingpongDevices-Dev", 
 	ConsistentRead: true,
 	KeyConditionExpression: "EchoUserID = :EchoUserID AND MatchStartTime BETWEEN :fourHoursAgo AND :rightNow",
 	ExpressionAttributeValues: {

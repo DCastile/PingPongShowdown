@@ -8,7 +8,7 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : "MatchKeeperPlayers-Dev",
+    TableName : "PingpongPlayers-Dev",
     KeySchema: [       
         { AttributeName: "Phone", KeyType: "HASH" }  //Partition key
         //{ AttributeName: "DOB", KeyType: "RANGE" }  //Sort key

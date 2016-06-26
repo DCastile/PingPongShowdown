@@ -12,7 +12,7 @@ var phone = 1111111111;
 var dob = "8-9-68";
 
 var params = {
-    TableName : "MatchKeeperPlayers-Dev",
+    TableName : "PingpongPlayers-Dev",
     KeyConditionExpression: "Phone = :Phone AND DOB BETWEEN : AND :rightNow",
     ExpressionAttributeValues: {
         ":Phone": { "S": JSON.stringify(phone) },

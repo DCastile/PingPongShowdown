@@ -31,7 +31,7 @@ var matchData = {
 
 
 var params = {
-    TableName: "MatchKeeperMatches-Dev",
+    TableName: "PingpongMatches-Dev",
                 Item: {                  
                     "EchoUserID": 		echoUserID, 
                     "MatchStartTime":	millisecs,                     
