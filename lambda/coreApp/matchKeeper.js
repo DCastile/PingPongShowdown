@@ -5,7 +5,6 @@ var AlexaSkill = require('./AlexaSkill'),
     eventHandlers = require('./eventHandlers'),
     intentHandlers = require('./intentHandlers');
 
-// var APP_ID = "amzn1.echo-sdk-ams.app.4cd0a8f9-ba04-409f-8fd1-27b329e4e9e1";// Tennis MatchManager PRODUCTION app ID
 var APP_ID = "amzn1.echo-sdk-ams.app.8cbbec55-1a6a-4eaf-b2f8-c898f8a6be37";// PingPong MatchManager DEVELOPMENT app ID
 var skillContext = {};
 

@@ -13,13 +13,11 @@ var kickoffMatch = (function () {
 			console.log('entering kickoffMatch.doIt function');
 
 			if (rallyWinner == currentMatch.data.MatchData.PlayerName.Red1) {
-				console.log('in if = ')
 				console.log('rallyWinner = ' + rallyWinner)
 				console.log('currentMatch.data.MatchData.PlayerName.Red1 = ' + currentMatch.data.MatchData.PlayerName.Red1)		
 				currentMatch.data.MatchData.WhosServe = 'red';
 				currentMatch.data.MatchData.DoublesServeSequence.push('alpha', 'yankee', 'bravo', 'zulu');
 			} else {
-				console.log('in else = ')
 				console.log('rallyWinner = ' + rallyWinner)
 				console.log('currentMatch.data.MatchData.PlayerName.Red1 = ' + currentMatch.data.MatchData.PlayerName.Red1)
 				console.log('currentMatch.data.MatchData.PlayerName.Blue1 = ' + currentMatch.data.MatchData.PlayerName.Blue1)		

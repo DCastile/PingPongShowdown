@@ -1644,8 +1644,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 			if (currentMatch.data.MatchData.RallyForTheServe == true) {	
 				kickoffMatch.doIt('team-red', currentMatch, session, response); 
 			} else {
-				var speechText = 'I didn\'t hear you correctly. Please say that again.';
-				var repromptText = "Please say that again.";		
+				var speechText = 'I thought I heard you tell me who is first to serve. That only happens when starting a match. Would you like to start a match, or hear other options?';
+				var repromptText = "Would you like to start a match or hear other options?";		
 				askSpeech(speechText, repromptText, response);				
 			}								
 		});
@@ -1662,8 +1662,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 			if (currentMatch.data.MatchData.RallyForTheServe == true) {	
 				kickoffMatch.doIt('team-blue', currentMatch, session, response);
 			} else {
-				var speechText = 'I didn\'t hear you correctly. Please say that again.';
-				var repromptText = "Please say that again.";		
+				var speechText = 'I thought I heard you tell me who is first to serve. That only happens when starting a match. Would you like to start a match, or hear other options?';
+				var repromptText = "Would you like to start a match or hear other options?";		
 				askSpeech(speechText, repromptText, response);				
 			}								
 		});
@@ -1698,8 +1698,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 				}	
 				
 			} else {
-				var speechText = 'I didn\'t hear you correctly. Please say that again.';
-				var repromptText = "Please say that again.";		
+				var speechText = 'I thought I heard you tell me who is first to serve. That only happens when starting a match. Would you like to start a match, or hear other options?';
+				var repromptText = "Would you like to start a match or hear other options?";		
 				askSpeech(speechText, repromptText, response);				
 			}
 		});
@@ -1720,14 +1720,14 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 				} else if (intent.slots.Color.value == 'blue') {
 					kickoffMatch.doIt(currentMatch.data.MatchData.PlayerName.Blue1, currentMatch, session, response);
 				} else {
-					var speechText = 'I didn\'t hear you correctly. Please say that again.';
-					var repromptText = "Please say that again.";		
+					var speechText = 'I didn\'t quite get that. To specify who serves first, say, red won the rally, or, blue won the rally.';
+					var repromptText = "Who won the rally?";		
 					askSpeech(speechText, repromptText, response)					
 				}
 
 			} else {
-				var speechText = 'I didn\'t hear you correctly. Please say that again.';
-				var repromptText = "Please say that again.";		
+				var speechText = 'I thought I heard you tell me who is first to serve. That only happens when starting a match. Would you like to start a match, or hear other options?';
+				var repromptText = "Would you like to start a match or hear other options?";		
 				askSpeech(speechText, repromptText, response);				
 			}								
 		});
