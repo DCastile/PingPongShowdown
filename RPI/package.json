@@ -1,0 +1,11 @@
+{
+  "name": "rpi",
+  "version": "1.0.0",
+  "description": "RPI components of PingPongShowdown",
+  "main": "pingPongPoint.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
