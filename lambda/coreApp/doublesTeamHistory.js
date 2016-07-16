@@ -26,7 +26,7 @@ var doublesTeamHistory = (function () {
 					// pull data when doubles team was Red
 					function(callback) {
 
-						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
+						var startOfTimeRange = 1464664678974; // May 30, 2016 
 						var rightNow = new Date().getTime();
 						var params = {				
 							TableName: PingpongMatchesTable,
@@ -34,9 +34,7 @@ var doublesTeamHistory = (function () {
 							KeyConditionExpression: "Red1PlayerID = :Player1ID AND Red2PlayerID = :Player2ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow", 
 							ExpressionAttributeValues: {
 								":Player1ID": player1Key,
-								":Player2ID": player2Key,
-								//":rightNow": rightNow, 
-								//":startOfRange": startOfTimeRange 								
+								":Player2ID": player2Key 								
 							},
 							ProjectionExpression: "Red1PlayerID, Red2PlayerID, MatchType, MatchData"
 						};
@@ -53,7 +51,7 @@ var doublesTeamHistory = (function () {
 					// pull data when doubles team was Red in reverse order
 					function(callback) {
 
-						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
+						var startOfTimeRange = 1464664678974; // May 30, 2016 
 						var rightNow = new Date().getTime();
 						var params = {				
 							TableName: PingpongMatchesTable,
@@ -61,9 +59,7 @@ var doublesTeamHistory = (function () {
 							KeyConditionExpression: "Red1PlayerID = :Player2ID AND Red2PlayerID = :Player1ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow", 
 							ExpressionAttributeValues: {
 								":Player1ID": player1Key,
-								":Player2ID": player2Key,
-								//":rightNow": rightNow, 
-								//":startOfRange": startOfTimeRange 								
+								":Player2ID": player2Key								
 							},
 							ProjectionExpression: "Red1PlayerID, Red2PlayerID, MatchType, MatchData"
 						};
@@ -81,7 +77,7 @@ var doublesTeamHistory = (function () {
 					// pull data when doubles team was Blue
 					function(callback) {
 
-						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
+						var startOfTimeRange = 1464664678974; // May 30, 2016 
 						var rightNow = new Date().getTime();
 						var params = {				
 							TableName: PingpongMatchesTable,
@@ -89,9 +85,7 @@ var doublesTeamHistory = (function () {
 							KeyConditionExpression: "Blue1PlayerID = :Player1ID AND Blue2PlayerID = :Player2ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow",  
 							ExpressionAttributeValues: {
 								":Player1ID": player1Key,
-								":Player2ID": player2Key,
-								//":rightNow": rightNow, 
-								//":startOfRange": startOfTimeRange 								
+								":Player2ID": player2Key								
 							},
 							ProjectionExpression: "Blue1PlayerID, Blue2PlayerID, MatchType, MatchData"
 						};
@@ -108,7 +102,7 @@ var doublesTeamHistory = (function () {
 					// pull data when doubles team was Blue in reverse order
 					function(callback) {
 
-						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
+						var startOfTimeRange = 1464664678974; // May 30, 2016 
 						var rightNow = new Date().getTime();
 						var params = {				
 							TableName: PingpongMatchesTable,
@@ -116,9 +110,7 @@ var doublesTeamHistory = (function () {
 							KeyConditionExpression: "Blue1PlayerID = :Player2ID AND Blue2PlayerID = :Player1ID", //AND MatchStartTime BETWEEN :startOfRange AND :rightNow",  
 							ExpressionAttributeValues: {
 								":Player1ID": player1Key,
-								":Player2ID": player2Key,
-								//":rightNow": rightNow, 
-								//":startOfRange": startOfTimeRange 								
+								":Player2ID": player2Key								
 							},
 							ProjectionExpression: "Blue1PlayerID, Blue2PlayerID, MatchType, MatchData"
 						};
@@ -174,22 +166,6 @@ var doublesTeamHistory = (function () {
 					// rawStats[1] is an array of all the matches where the doubles team was Blue
 					rawStats.forEach(function(playerSlot) { // go through twice, once for Red, once for Blue
 						playerSlot.forEach(function(item) { // each item is a match that was found where the doubles team was signed in
-
-							/*	This worked well to aggregate all red match data and all blue match data but player isn't always on that team				
-							for (var specificStat in stats) {
-								if (stats.hasOwnProperty(specificStat)) {
-									console.log('specificStat = ' + specificStat);
-									console.log('stats[specificStat] = ' + stats[specificStat]);
-									console.log('item.MatchData[specificStat] = ' + item.MatchData[specificStat]);													
-									if (!(item.MatchData[specificStat] === undefined || item.MatchData[specificStat] === null)) {
-										stats[specificStat] += item.MatchData[specificStat];
-									};							
-								};
-							};																
-							*/	
-							
-							// To incorporate specific time band statistics, use
-							// if (startOfRange <= MatchStartTime <= endOfRange)
 							
 							stats.GamePoints += item.MatchData.GamePoints
 							stats.TotalGamesPlayed += (item.MatchData.RedTeamTotalGamesWon + item.MatchData.BlueTeamTotalGamesWon);
@@ -248,10 +224,7 @@ var doublesTeamHistory = (function () {
 								if (!(item.MatchData.MaxRedPointStreak === undefined || item.MatchData.MaxRedPointStreak === null)) {
 									stats.MaxSinglesOrDoublesPointStreak += item.MatchData.MaxRedPointStreak;
 								};
-
-								//if (!(item.MatchData.RedTiebreaksWon === undefined || item.MatchData.RedTiebreaksWon === null)) {
-									//stats.SinglesOrDoublesTiebreaksWon += item.MatchData.RedTiebreaksWon;
-								//};																																										
+																																										
 								
 							} else if (item.Blue1PlayerID == player1Key || item.Blue1PlayerID == player2Key) {  // the doubles team players were on the blue team of this given match (item)
 								
@@ -305,12 +278,7 @@ var doublesTeamHistory = (function () {
 
 								if (!(item.MatchData.MaxBluePointStreak === undefined || item.MatchData.MaxBluePointStreak === null)) {
 									stats.MaxSinglesOrDoublesPointStreak += item.MatchData.MaxBluePointStreak;
-								};
-
-								//if (!(item.MatchData.BlueTiebreaksWon === undefined || item.MatchData.BlueTiebreaksWon === null)) {
-									//stats.SinglesOrDoublesTiebreaksWon += item.MatchData.BlueTiebreaksWon;
-								//};							
-													
+								};																				
 							};						
 						});
 					});		
@@ -334,7 +302,6 @@ var doublesTeamHistory = (function () {
 				stats.NumberOfMatches = 0;
 				callback(stats);
 			};
-
 		}
     };		
 

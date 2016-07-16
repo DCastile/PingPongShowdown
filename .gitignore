@@ -37,6 +37,7 @@ config.json
 AWSconfig.json
 ECSconfig.json
 **/creds.py
+**/website
 *.crt
 *.key
 
