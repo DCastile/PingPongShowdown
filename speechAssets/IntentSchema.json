@@ -1,0 +1,258 @@
+{
+  "intents": [
+    {
+      "intent": "RegisterPlayerDialogIntent",
+      "slots": [
+        {
+          "name": "Phone",
+          "type": "AMAZON.NUMBER"
+        }        
+      ]
+    },    
+    {
+      "intent": "AddPlayerDialogIntent",
+      "slots": [
+        {
+          "name": "Phone",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+           "name": "Team",
+           "type": "TEAM"              
+        }         
+      ]
+    },
+    {
+      "intent": "OneShotAddPlayerIntent",
+      "slots": [
+        {
+          "name": "Phone",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+           "name": "Team",
+           "type": "TEAM"              
+        }         
+      ]
+    },     
+    {
+      "intent": "SpecifyGameScoreIntent",
+      "slots": [
+        {
+          "name": "RedScore",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "BlueScore",
+          "type": "AMAZON.NUMBER"
+        }        
+      ]
+    },     
+    {
+      "intent": "FixGameScoreIntent"
+    },     
+    {
+      "intent": "PointToPlayerIntent",        
+      "slots": [
+        {
+          "name": "PointToPlayer",
+          "type": "POINT_TO_PLAYER"
+        }
+      ]
+    },        
+    {
+      "intent": "ChangeMatchScoreIntent"
+    },    
+    {
+      "intent": "SpecifyMatchScoreIntent",
+      "slots": [
+        {
+          "name": "RedMatchScore",
+          "type": "MATCH_SCORE"
+        },
+        {
+          "name": "BlueMatchScore",
+          "type": "MATCH_SCORE"
+        }        
+      ]
+    },   
+    {
+      "intent": "NewMatchDialogIntent",
+      "slots": [
+        {
+          "name": "SinglesOrDoubles",
+          "type": "SINGLES_OR_DOUBLES"
+        }        
+      ]            
+    }, 
+    {
+      "intent": "SkipSignInIntent"
+           
+    },          
+    {
+      "intent": "NewGameIntent",
+      "slots": [
+        {
+          "name": "Team",
+          "type": "TEAM"
+        }
+      ]            
+    },
+    {
+      "intent": "DontSwitchSidesIntent"
+    },
+    {
+      "intent": "AnnounceScoreIntent"
+    },    
+    {
+      "intent": "DontAnnounceScoreIntent"
+    },
+    {
+      "intent": "AnnounceServeIntent"
+    },
+    {
+      "intent": "DontAnnounceServeIntent"
+    },    
+    {
+      "intent": "SavePreferencesIntent",
+      "slots": [
+        {
+          "name": "Phone",
+          "type": "AMAZON.NUMBER"
+        }        
+      ]
+    }, 
+    {
+      "intent": "LoadPreferencesIntent",
+      "slots": [
+        {
+          "name": "Phone",
+          "type": "AMAZON.NUMBER"
+        }        
+      ]
+    }, 
+    {
+      "intent": "RedTeamSummaryIntent"
+    },
+    {
+      "intent": "BlueTeamSummaryIntent"
+    },     
+    {
+      "intent": "ExperiencedUserModeOnIntent"
+    }, 
+    {
+      "intent": "ExperiencedUserModeOffIntent"
+    },       
+    {
+      "intent": "UndoIntent"
+    },              
+    {
+      "intent": "TellGameScoreIntent"
+    },
+    {
+      "intent": "TellMatchScoreIntent"
+    },    
+    {
+      "intent": "TellServeIntent"
+    },  
+    {
+      "intent": "TellMatchSummaryIntent"
+    },
+    {
+      "intent": "TellMoreHelpIntent"
+    },
+    {
+      "intent": "TellEvenMoreHelpIntent"
+    },
+    {
+      "intent": "TellSaveAndLoadPreferencesIntent"
+    }, 
+    {
+      "intent": "ChangeNumberOfServesIntent",
+      "slots": [
+        {
+          "name": "Serves",
+          "type": "AMAZON.NUMBER"
+        }
+      ]            
+    }, 
+    {
+      "intent": "ChangeGameLengthIntent",
+      "slots": [
+        {
+          "name": "Points",
+          "type": "AMAZON.NUMBER"
+        }
+      ]            
+    }, 
+    {
+      "intent": "GetNameIntent",
+      "slots": [
+        {
+          "name": "PlayerName",
+          "type": "AMAZON.US_FIRST_NAME"
+        }        
+      ]
+    },
+    {
+      "intent": "WhoWonRallyIntent",
+      "slots": [
+        {
+          "name": "PlayerName",
+          "type": "AMAZON.US_FIRST_NAME"
+        }        
+      ]
+    },
+    {
+      "intent": "TeamRedWonRallyIntent"
+    },
+    {
+      "intent": "TeamBlueWonRallyIntent"
+    }, 
+    {
+      "intent": "RedOrBlueWonRallyIntent",
+      "slots": [
+        {
+          "name": "Color",
+          "type": "COLOR"
+        }        
+      ]
+    },    
+    {
+      "intent": "SetSassMeterIntent",
+      "slots": [
+        {
+          "name": "SassMeter",
+          "type": "AMAZON.NUMBER"
+        }
+      ]            
+    },    
+    {
+      "intent": "ConfirmNameIntent"
+    }, 
+	{
+      "intent": "ChangeMatchLengthToLongIntent"
+    }, 
+	{
+      "intent": "ChangeMatchLengthToShortIntent"
+    },    
+    {
+      "intent": "TellSettingAudioPreferencesIntent"
+    }, 
+    {
+      "intent": "TellRulesOfPingPongIntent"
+    },
+    {
+      "intent": "LetsPlayIntent"
+    },     
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

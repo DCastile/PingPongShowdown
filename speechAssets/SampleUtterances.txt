@@ -1,0 +1,724 @@
+NewMatchDialogIntent start a match
+NewMatchDialogIntent start a new match
+NewMatchDialogIntent new match   
+NewMatchDialogIntent start a {SinglesOrDoubles} match
+NewMatchDialogIntent start a new {SinglesOrDoubles} match
+NewMatchDialogIntent new {SinglesOrDoubles} match
+NewMatchDialogIntent start a match {SinglesOrDoubles}
+NewMatchDialogIntent start a new match {SinglesOrDoubles}
+NewMatchDialogIntent new match {SinglesOrDoubles}
+NewMatchDialogIntent {SinglesOrDoubles}
+NewMatchDialogIntent {SinglesOrDoubles} match
+NewMatchDialogIntent begin a match
+NewMatchDialogIntent begin a new match 
+NewMatchDialogIntent begin a {SinglesOrDoubles} match
+NewMatchDialogIntent begin a new {SinglesOrDoubles} match
+NewMatchDialogIntent begin a match {SinglesOrDoubles}
+NewMatchDialogIntent begin a new match {SinglesOrDoubles}
+
+SkipSignInIntent skip sign in
+SkipSignInIntent skip sign in and play
+SkipSignInIntent skip sign in and just play
+
+NewGameIntent new game
+NewGameIntent start a game
+NewGameIntent start a new game
+NewGameIntent start a game with {Team} 
+NewGameIntent start a game with {Team} serve
+NewGameIntent start a game with {Team} service
+NewGameIntent new game {Team} serve
+NewGameIntent new game with {Team} serve
+NewGameIntent start a new game {Team} serve
+NewGameIntent start a new game with {Team} serve
+NewGameIntent start a new game with {Team} service
+
+TellGameScoreIntent what's the score
+TellGameScoreIntent what the score is
+TellGameScoreIntent what's the game score
+TellGameScoreIntent what is the game score
+TellGameScoreIntent what is the score of the current game
+TellGameScoreIntent what the score of the current game is
+TellGameScoreIntent what's the score of the current game
+TellGameScoreIntent score of game
+TellGameScoreIntent score of the game
+TellGameScoreIntent what is the score of the game
+TellGameScoreIntent what's the score of the game
+TellGameScoreIntent what the score of the game is
+TellGameScoreIntent game score
+TellGameScoreIntent score of current game
+TellGameScoreIntent current score
+TellGameScoreIntent current game score
+TellGameScoreIntent what is the current game score
+TellGameScoreIntent what the current game score is
+TellGameScoreIntent what's the current game score
+TellGameScoreIntent this game score
+TellGameScoreIntent score of this game
+TellGameScoreIntent what's the score of this game
+TellGameScoreIntent what is the score of this game
+TellGameScoreIntent what the score of this game is
+TellGameScoreIntent tell me the score
+TellGameScoreIntent tell me the score of the game
+TellGameScoreIntent tell me the game score
+TellGameScoreIntent tell me the current score
+TellGameScoreIntent give me the score
+TellGameScoreIntent give me the score of the game
+TellGameScoreIntent give me the game score
+TellGameScoreIntent give me the current score
+
+TellMatchScoreIntent what's the match score
+TellMatchScoreIntent what is the match score
+TellMatchScoreIntent what the match score is
+TellMatchScoreIntent what is the score of the current match
+TellMatchScoreIntent what the score of the current match is
+TellMatchScoreIntent what's the score of the current match
+TellMatchScoreIntent match score
+TellMatchScoreIntent what's the current match score
+TellMatchScoreIntent what is the current match score
+TellMatchScoreIntent what the current match score is
+TellMatchScoreIntent tell me the match score
+TellMatchScoreIntent tell me what the score of the current match is
+TellMatchScoreIntent tell me the score of the current match
+TellMatchScoreIntent tell me match score
+TellMatchScoreIntent tell me the current match score
+TellMatchScoreIntent give me the match score
+TellMatchScoreIntent give me what the score of the current match is
+TellMatchScoreIntent give me the score of the current match
+TellMatchScoreIntent give me set match
+TellMatchScoreIntent give me the current match score
+
+TellServeIntent whose serve is it
+TellServeIntent who is serving
+TellServeIntent who's serving
+TellServeIntent who has serve
+TellServeIntent who has the serve
+TellServeIntent whose got serve
+TellServeIntent whose got the serve
+TellServeIntent who's the server
+TellServeIntent who is the server
+TellServeIntent who is the serving team
+TellServeIntent which team is serving
+TellServeIntent which team is serving red or blue
+TellServeIntent which team is serving blue or red
+TellServeIntent is it red team serve or blue team serve
+TellServeIntent is it red serve or blue serve
+TellServeIntent is it blue serve or red serve
+TellServeIntent is it red or blue serve
+TellServeIntent is it blue or red serve
+TellServeIntent is it red or blue team's serve
+TellServeIntent is it blue or red team's serve
+TellServeIntent whose serve
+TellServeIntent whose serve red or blue
+TellServeIntent whose serve blue or red
+
+TellMatchSummaryIntent match summary
+TellMatchSummaryIntent summary of match
+TellMatchSummaryIntent give me a match summary
+TellMatchSummaryIntent give me a summary of match
+TellMatchSummaryIntent give me a summary of the match
+TellMatchSummaryIntent tell me a match summary
+TellMatchSummaryIntent tell me a summary of match
+TellMatchSummaryIntent tell me a summary of the match
+TellMatchSummaryIntent summarize match
+TellMatchSummaryIntent summarize the match
+TellMatchSummaryIntent give me a summary report
+TellMatchSummaryIntent give me a summary report of the match
+TellMatchSummaryIntent tell me a summary report
+TellMatchSummaryIntent tell me a summary report of the match
+TellMatchSummaryIntent what's the summary of the match
+TellMatchSummaryIntent what is the summary of the match
+TellMatchSummaryIntent what the summary of the match is
+TellMatchSummaryIntent give me a summary report of the match
+TellMatchSummaryIntent give me a summary report
+TellMatchSummaryIntent what's the match report
+TellMatchSummaryIntent what is the match report
+TellMatchSummaryIntent what the match report is
+TellMatchSummaryIntent report on the match
+TellMatchSummaryIntent report match statistics
+TellMatchSummaryIntent give me match statistics
+TellMatchSummaryIntent give me statistics about the match
+TellMatchSummaryIntent tell me match statistics
+TellMatchSummaryIntent tell me statistics about the match
+
+OneShotAddPlayerIntent add player
+OneShotAddPlayerIntent add a player
+OneShotAddPlayerIntent add player to {Team}
+OneShotAddPlayerIntent add player to {Team} side
+OneShotAddPlayerIntent add a player to {Team} side
+OneShotAddPlayerIntent add a player to the {Team} side
+OneShotAddPlayerIntent add player to {Team} {Phone}
+OneShotAddPlayerIntent add a player to {Team}
+OneShotAddPlayerIntent add a player to the {Team}
+OneShotAddPlayerIntent add a player to {Team} {Phone}
+OneShotAddPlayerIntent add a player to the {Team} {Phone}
+OneShotAddPlayerIntent add player {Phone}
+OneShotAddPlayerIntent add a player {Phone}
+OneShotAddPlayerIntent add player to match
+OneShotAddPlayerIntent add a player to match
+OneShotAddPlayerIntent add player to the match
+OneShotAddPlayerIntent add a player to the match
+OneShotAddPlayerIntent add player to game
+OneShotAddPlayerIntent add a player to game
+OneShotAddPlayerIntent add player to the game
+OneShotAddPlayerIntent add a player to the game
+OneShotAddPlayerIntent add {Phone}
+OneShotAddPlayerIntent add {Phone} to match
+OneShotAddPlayerIntent add {Phone} to the match
+OneShotAddPlayerIntent add {Phone} to {Team}
+OneShotAddPlayerIntent add {Phone} to the {Team}
+OneShotAddPlayerIntent add {Phone} to match on {Team} 
+OneShotAddPlayerIntent add {Phone} to the match on {Team} 
+OneShotAddPlayerIntent add {Phone} to the match on the {Team} 
+OneShotAddPlayerIntent add {Phone} to match on {Team} team
+OneShotAddPlayerIntent add {Phone} to the match on {Team} team
+OneShotAddPlayerIntent add {Phone} to the match on the {Team} team
+OneShotAddPlayerIntent add {Phone} to match on team {Team}
+OneShotAddPlayerIntent add {Phone} to the match on team {Team}
+OneShotAddPlayerIntent add {Phone} to side
+OneShotAddPlayerIntent add {Phone} to {Team} side
+OneShotAddPlayerIntent add {Phone} to the {Team} side
+OneShotAddPlayerIntent add {Phone} to match on {Team} side
+OneShotAddPlayerIntent add {Phone} to the match on {Team} side 
+OneShotAddPlayerIntent add {Phone} to the match on the {Team} side 
+OneShotAddPlayerIntent add {Phone} to match on {Team} team side
+OneShotAddPlayerIntent add {Phone} to the match on {Team} team side
+OneShotAddPlayerIntent add {Phone} to the match on the {Team} team side
+OneShotAddPlayerIntent add {Phone} to match on team {Team} side
+OneShotAddPlayerIntent add {Phone} to the match on team {Team} side
+OneShotAddPlayerIntent add {Phone} to game
+OneShotAddPlayerIntent add {Phone} to the game
+OneShotAddPlayerIntent add {Phone} to {Team}
+OneShotAddPlayerIntent add {Phone} to the {Team}
+OneShotAddPlayerIntent add {Phone} to game on {Team} 
+OneShotAddPlayerIntent add {Phone} to the game on {Team} 
+OneShotAddPlayerIntent add {Phone} to the game on the {Team} 
+OneShotAddPlayerIntent add {Phone} to game on {Team} team
+OneShotAddPlayerIntent add {Phone} to the game on {Team} team
+OneShotAddPlayerIntent add {Phone} to the game on the {Team} team
+OneShotAddPlayerIntent add {Phone} to game on team {Team}
+OneShotAddPlayerIntent add {Phone} to the game on team {Team}
+OneShotAddPlayerIntent add {Phone} to {Team} side
+OneShotAddPlayerIntent add {Phone} to the {Team} side
+OneShotAddPlayerIntent add {Phone} to game on {Team} side 
+OneShotAddPlayerIntent add {Phone} to the game on {Team} side 
+OneShotAddPlayerIntent add {Phone} to the game on the {Team} side 
+OneShotAddPlayerIntent add {Phone} to game on {Team} team side
+OneShotAddPlayerIntent add {Phone} to the game on {Team} team side
+OneShotAddPlayerIntent add {Phone} to the game on the {Team} team side
+OneShotAddPlayerIntent add {Phone} to game on team {Team} side
+OneShotAddPlayerIntent add {Phone} to the game on team {Team} side
+
+AddPlayerDialogIntent {Phone}
+AddPlayerDialogIntent join {Team}
+AddPlayerDialogIntent join the {Team}
+
+RegisterPlayerDialogIntent register
+RegisterPlayerDialogIntent register new player
+RegisterPlayerDialogIntent register player
+RegisterPlayerDialogIntent register a new player
+RegisterPlayerDialogIntent register a player
+RegisterPlayerDialogIntent register a player with phone number {Phone}
+RegisterPlayerDialogIntent register another player
+RegisterPlayerDialogIntent register another new player
+RegisterPlayerDialogIntent register an additional new player
+RegisterPlayerDialogIntent register an additional player
+RegisterPlayerDialogIntent register new player {Phone}
+RegisterPlayerDialogIntent register a new player {Phone}
+RegisterPlayerDialogIntent register a new player with {Phone}
+RegisterPlayerDialogIntent register a new player with number {Phone}
+RegisterPlayerDialogIntent register a new player with phone number {Phone}
+RegisterPlayerDialogIntent register player {Phone}
+RegisterPlayerDialogIntent register a player {Phone}
+RegisterPlayerDialogIntent register another player {Phone}
+RegisterPlayerDialogIntent register another new player {Phone}
+RegisterPlayerDialogIntent register an additional new player {Phone}
+RegisterPlayerDialogIntent register an additional player {Phone}
+RegisterPlayerDialogIntent register {Phone}
+RegisterPlayerDialogIntent register number
+RegisterPlayerDialogIntent register new number
+RegisterPlayerDialogIntent register a new number
+RegisterPlayerDialogIntent register a number
+RegisterPlayerDialogIntent register another number
+RegisterPlayerDialogIntent register another new number
+RegisterPlayerDialogIntent register an additional new number
+RegisterPlayerDialogIntent register an additional number
+RegisterPlayerDialogIntent register new number {Phone}
+RegisterPlayerDialogIntent register a new number {Phone}
+RegisterPlayerDialogIntent register a number {Phone}
+RegisterPlayerDialogIntent register another number {Phone}
+RegisterPlayerDialogIntent register another new number {Phone}
+RegisterPlayerDialogIntent register an additional new number {Phone}
+RegisterPlayerDialogIntent register an additional number {Phone}
+RegisterPlayerDialogIntent register number {Phone}
+RegisterPlayerDialogIntent register a different four digit player I.D.
+RegisterPlayerDialogIntent register a different player I.D.
+RegisterPlayerDialogIntent register a different I.D.
+
+FixGameScoreIntent change score
+FixGameScoreIntent fix score
+FixGameScoreIntent correct score
+FixGameScoreIntent adjust score
+FixGameScoreIntent change the score
+FixGameScoreIntent fix the score
+FixGameScoreIntent correct the score
+FixGameScoreIntent adjust the score
+FixGameScoreIntent change the game score
+FixGameScoreIntent fix the game score
+FixGameScoreIntent correct the game score
+FixGameScoreIntent adjust the game score
+
+SpecifyGameScoreIntent red score {RedScore} blue score {BlueScore}
+SpecifyGameScoreIntent blue score {BlueScore} red score {RedScore} 
+
+PointToPlayerIntent {PointToPlayer}
+
+ChangeMatchScoreIntent change match score
+ChangeMatchScoreIntent change the match score
+ChangeMatchScoreIntent change the score of match
+ChangeMatchScoreIntent change the score of the match
+ChangeMatchScoreIntent change the score of the current match
+ChangeMatchScoreIntent adjust match score
+ChangeMatchScoreIntent adjust the match score
+ChangeMatchScoreIntent adjust the score of match
+ChangeMatchScoreIntent adjust the score of the match
+ChangeMatchScoreIntent adjust the score of the current match
+ChangeMatchScoreIntent fix match score
+ChangeMatchScoreIntent fix the match score
+ChangeMatchScoreIntent fix the score of match
+ChangeMatchScoreIntent fix the score of the match
+ChangeMatchScoreIntent fix the score of the current match
+ChangeMatchScoreIntent correct match score
+ChangeMatchScoreIntent correct the match score
+ChangeMatchScoreIntent correct the score of match
+ChangeMatchScoreIntent correct the score of the match
+ChangeMatchScoreIntent correct the score of the current match
+ChangeMatchScoreIntent make a change to match score
+ChangeMatchScoreIntent make a change to the match score
+ChangeMatchScoreIntent make a change to the score of match
+ChangeMatchScoreIntent make a change to the score of the match
+ChangeMatchScoreIntent make a change to the score of the current match 
+
+SpecifyMatchScoreIntent red should have {RedMatchScore} and blue should have {BlueMatchScore} 
+
+DontSwitchSidesIntent don't switch sides
+DontSwitchSidesIntent stop switching sides
+DontSwitchSidesIntent turn off switching sides
+DontSwitchSidesIntent no more switching sides
+DontSwitchSidesIntent cancel switching sides
+DontSwitchSidesIntent stay on the same side
+DontSwitchSidesIntent keep the same sides
+
+TellMoreHelpIntent tell me more things I can say
+TellMoreHelpIntent tell me more
+
+TellEvenMoreHelpIntent tell me ways to change the match
+TellEvenMoreHelpIntent tell me some ways to change the match
+
+AMAZON.HelpIntent how do I keep score
+AMAZON.HelpIntent how do I keep the score
+AMAZON.HelpIntent how do I change the score
+AMAZON.HelpIntent how do I change the set score
+AMAZON.HelpIntent how do I switch the serve
+AMAZON.HelpIntent how do I ask the score
+AMAZON.HelpIntent how do I ask what the score is
+AMAZON.HelpIntent how do I get information about the match
+AMAZON.HelpIntent help me change the score
+AMAZON.HelpIntent help me change the set score
+AMAZON.HelpIntent help me switch the serve
+AMAZON.HelpIntent help me ask the score
+AMAZON.HelpIntent help me ask what the score is
+AMAZON.HelpIntent help me get information about the match
+AMAZON.HelpIntent give me some help
+AMAZON.HelpIntent help me out
+AMAZON.HelpIntent help me out here
+AMAZON.HelpIntent I need some help
+AMAZON.HelpIntent hear more things
+AMAZON.HelpIntent hear other options
+AMAZON.HelpIntent hear my options
+AMAZON.HelpIntent hear more options
+AMAZON.HelpIntent hear more things I can say
+AMAZON.HelpIntent give me a list of things I can say
+AMAZON.HelpIntent give me a full list of things I can do
+AMAZON.HelpIntent give me a  list of things I can do
+AMAZON.HelpIntent what are all the things I can say
+AMAZON.HelpIntent what are all the things I can do
+AMAZON.HelpIntent what are  the things I can do
+AMAZON.HelpIntent tell me what I can say
+AMAZON.HelpIntent tell me the things I can say
+AMAZON.HelpIntent what are all the commands I can say
+AMAZON.HelpIntent tell me all the commands I can say
+AMAZON.HelpIntent what can I say
+AMAZON.HelpIntent what can I do
+AMAZON.HelpIntent what are my options
+AMAZON.HelpIntent what are my other options
+AMAZON.HelpIntent what are the options
+AMAZON.HelpIntent what things can I say
+AMAZON.HelpIntent what things can I do
+AMAZON.HelpIntent what do I do
+AMAZON.HelpIntent what do I say
+AMAZON.HelpIntent how do I use this
+AMAZON.HelpIntent how do I ask for things
+AMAZON.HelpIntent how do I run this
+AMAZON.HelpIntent what can you do
+AMAZON.HelpIntent what can you do for me
+AMAZON.HelpIntent how do I play tennis with this
+AMAZON.HelpIntent how do I play tennis with this thing
+
+AMAZON.CancelIntent all done
+
+UndoIntent undo
+UndoIntent undo that
+UndoIntent undo that score
+UndoIntent change that
+UndoIntent change that score
+UndoIntent cancel that
+UndoIntent cancel that score
+UndoIntent don't do that
+UndoIntent go back
+UndoIntent go back to previous score
+
+ExperiencedUserModeOnIntent use experienced user mode
+ExperiencedUserModeOnIntent turn on experienced user mode
+ExperiencedUserModeOnIntent play as an experienced user
+ExperiencedUserModeOnIntent I am an experienced user
+ExperiencedUserModeOnIntent I'm an experienced user
+ExperiencedUserModeOnIntent use experienced player mode
+ExperiencedUserModeOnIntent turn on experienced player mode
+ExperiencedUserModeOnIntent play as an experienced player
+ExperiencedUserModeOnIntent I am an experienced player
+ExperiencedUserModeOnIntent I'm an experienced player
+ExperiencedUserModeOnIntent minimal feedback
+ExperiencedUserModeOnIntent give me minimal feedback
+ExperiencedUserModeOnIntent don't say so much
+ExperiencedUserModeOnIntent don't say a lot
+ExperiencedUserModeOnIntent use fewer words
+ExperiencedUserModeOnIntent keep it short
+ExperiencedUserModeOnIntent turn on pro mode
+
+ExperiencedUserModeOffIntent turn off pro mode
+ExperiencedUserModeOffIntent turn off experienced player mode
+ExperiencedUserModeOffIntent turn off experienced user mode
+ExperiencedUserModeOffIntent use more words
+ExperiencedUserModeOffIntent I am not an experienced player
+ExperiencedUserModeOffIntent Don't use experienced player mode
+ExperiencedUserModeOffIntent Don't use pro mode
+ExperiencedUserModeOffIntent Don't use experienced player mode 
+ExperiencedUserModeOffIntent Give me more feedback
+ExperiencedUserModeOffIntent I am a beginner
+
+SavePreferencesIntent store preferences
+SavePreferencesIntent save preferences
+SavePreferencesIntent keep preferences
+SavePreferencesIntent store these preferences
+SavePreferencesIntent save these preferences
+SavePreferencesIntent keep these preferences
+SavePreferencesIntent store match preferences
+SavePreferencesIntent save match preferences
+SavePreferencesIntent keep match preferences
+SavePreferencesIntent store settings
+SavePreferencesIntent save settings
+SavePreferencesIntent keep settings
+SavePreferencesIntent store these settings
+SavePreferencesIntent save these settings
+SavePreferencesIntent keep these settings
+SavePreferencesIntent store match settings
+SavePreferencesIntent save match settings
+SavePreferencesIntent keep match settings
+SavePreferencesIntent store preferences to {Phone}
+SavePreferencesIntent save preferences to {Phone}
+SavePreferencesIntent keep preferences to {Phone}
+SavePreferencesIntent store these preferences to {Phone}
+SavePreferencesIntent save these preferences to {Phone}
+SavePreferencesIntent keep these preferences to {Phone}
+SavePreferencesIntent store match preferences to {Phone}
+SavePreferencesIntent save match preferences to {Phone}
+SavePreferencesIntent keep match preferences to {Phone}
+SavePreferencesIntent store settings to {Phone}
+SavePreferencesIntent save settings to {Phone}
+SavePreferencesIntent keep settings to {Phone}
+SavePreferencesIntent store these settings to {Phone}
+SavePreferencesIntent save these settings to {Phone}
+SavePreferencesIntent keep these settings to {Phone}
+SavePreferencesIntent store match settings to {Phone}
+SavePreferencesIntent save match settings to {Phone}
+SavePreferencesIntent keep match settings to {Phone}
+SavePreferencesIntent store settings for {Phone}
+SavePreferencesIntent save settings for {Phone}
+SavePreferencesIntent keep settings for {Phone}
+SavePreferencesIntent store these settings for {Phone}
+SavePreferencesIntent save these settings for {Phone}
+SavePreferencesIntent keep these settings for {Phone}
+SavePreferencesIntent store match settings for {Phone}
+SavePreferencesIntent save match settings for {Phone}
+SavePreferencesIntent keep match settings for {Phone}
+SavePreferencesIntent store preferences for {Phone}
+SavePreferencesIntent store preferences in {Phone}
+SavePreferencesIntent save preferences in {Phone}
+SavePreferencesIntent keep preferences in {Phone}
+SavePreferencesIntent store these preferences in {Phone}
+SavePreferencesIntent save these preferences in {Phone}
+SavePreferencesIntent keep these preferences in {Phone}
+SavePreferencesIntent store match preferences in {Phone}
+SavePreferencesIntent save match preferences in {Phone}
+SavePreferencesIntent keep match preferences in {Phone}
+SavePreferencesIntent store settings in {Phone}
+SavePreferencesIntent save settings in {Phone}
+SavePreferencesIntent keep settings in {Phone}
+SavePreferencesIntent store these settings in {Phone}
+SavePreferencesIntent save these settings in {Phone}
+SavePreferencesIntent keep these settings in {Phone}
+SavePreferencesIntent store match settings in {Phone}
+SavePreferencesIntent save match settings in {Phone}
+SavePreferencesIntent keep match settings in {Phone}
+
+LoadPreferencesIntent use preferences
+LoadPreferencesIntent use my preferences
+LoadPreferencesIntent use settings
+LoadPreferencesIntent use my settings
+LoadPreferencesIntent load preferences
+LoadPreferencesIntent load my preferences
+LoadPreferencesIntent load settings
+LoadPreferencesIntent load my settings
+LoadPreferencesIntent get preferences
+LoadPreferencesIntent get settings
+LoadPreferencesIntent get my preferences
+LoadPreferencesIntent get my settings 
+LoadPreferencesIntent apply preferences
+LoadPreferencesIntent apply my preferences
+LoadPreferencesIntent apply settings
+LoadPreferencesIntent apply my settings
+LoadPreferencesIntent use preferences from {Phone}
+LoadPreferencesIntent use my preferences from {Phone}
+LoadPreferencesIntent use settings from {Phone}
+LoadPreferencesIntent use my settings from {Phone}
+LoadPreferencesIntent load preferences from {Phone}
+LoadPreferencesIntent load my preferences from {Phone}
+LoadPreferencesIntent load settings from {Phone}
+LoadPreferencesIntent load my settings from {Phone}
+LoadPreferencesIntent get preferences from {Phone}
+LoadPreferencesIntent get settings from {Phone}
+LoadPreferencesIntent get my preferences from {Phone}
+LoadPreferencesIntent get my settings  from {Phone}
+LoadPreferencesIntent apply preferences from {Phone}
+LoadPreferencesIntent apply my preferences from {Phone}
+LoadPreferencesIntent apply settings from {Phone}
+LoadPreferencesIntent apply my settings from {Phone}
+LoadPreferencesIntent use preferences with {Phone}
+LoadPreferencesIntent use my preferences with {Phone}
+LoadPreferencesIntent use settings with {Phone}
+LoadPreferencesIntent use my settings with {Phone}
+LoadPreferencesIntent load preferences with {Phone}
+LoadPreferencesIntent load my preferences with {Phone}
+LoadPreferencesIntent load settings with {Phone}
+LoadPreferencesIntent load my settings with {Phone}
+LoadPreferencesIntent get preferences with {Phone}
+LoadPreferencesIntent get settings with {Phone}
+LoadPreferencesIntent get my preferences with {Phone}
+LoadPreferencesIntent get my settings  with {Phone}
+LoadPreferencesIntent apply preferences with {Phone}
+LoadPreferencesIntent apply my preferences with {Phone}
+LoadPreferencesIntent apply settings with {Phone}
+LoadPreferencesIntent apply my settings with {Phone}
+
+RedTeamSummaryIntent continue with red team
+RedTeamSummaryIntent continue with red 
+
+BlueTeamSummaryIntent continue with blue team
+BlueTeamSummaryIntent continue with blue 
+
+TellSaveAndLoadPreferencesIntent tell me about saving and loading preferences
+TellSaveAndLoadPreferencesIntent tell me about saving preferences
+TellSaveAndLoadPreferencesIntent tell me about loading preferences
+
+TellSettingAudioPreferencesIntent Tell me how to set preferences
+
+AnnounceScoreIntent announce the score
+AnnounceScoreIntent change back to announcing the score
+AnnounceScoreIntent change back to saying the score
+AnnounceScoreIntent say the score again
+AnnounceScoreIntent turn on announcing the score
+AnnounceScoreIntent turn on saying the score
+AnnounceScoreIntent turn on saying the score at the start of a match
+
+DontAnnounceScoreIntent don't announce the score
+DontAnnounceScoreIntent don't announce score
+DontAnnounceScoreIntent don't announce the score of the set
+
+AnnounceServeIntent announce the serve
+AnnounceServeIntent change back to announcing the serve
+AnnounceServeIntent change back to saying the serve
+AnnounceServeIntent say who is serving again
+AnnounceServeIntent turn on announcing the serve
+AnnounceServeIntent turn on saying the serve
+AnnounceServeIntent turn on saying the serve at the start of a match
+
+DontAnnounceServeIntent don't announce the serve
+DontAnnounceScoreIntent don't announce serve
+DontAnnounceScoreIntent don't announce who is serving
+
+ChangeNumberOfServesIntent change the number of serves per turn
+ChangeNumberOfServesIntent change the number of times each player serves
+ChangeNumberOfServesIntent change serves per player
+ChangeNumberOfServesIntent change how many times each player serves
+ChangeNumberOfServesIntent change the number of serves per turn to {Serves}
+ChangeNumberOfServesIntent change the number of times each player serves to {Serves}
+ChangeNumberOfServesIntent change serves per player to {Serves}
+ChangeNumberOfServesIntent change how many times each player serves to {Serves}
+ChangeNumberOfServesIntent serve {Serves} times
+ChangeNumberOfServesIntent serve {Serves} times each 
+ChangeNumberOfServesIntent serve {Serves} points
+ChangeNumberOfServesIntent serve {Serves} points each 
+ChangeNumberOfServesIntent serve each player should serve {Serves} times 
+ChangeNumberOfServesIntent make each player serve {Serves} times
+
+ChangeGameLengthIntent play games to {Points}
+ChangeGameLengthIntent change to {Points} point games
+ChangeGameLengthIntent play to {Points}
+ChangeGameLengthIntent change length of games
+ChangeGameLengthIntent change the length of games
+ChangeGameLengthIntent change the length of games played
+ChangeGameLengthIntent play short games
+ChangeGameLengthIntent play long games
+ChangeGameLengthIntent play {Points} point games
+
+TellRulesOfPingPongIntent tell me the rules
+TellRulesOfPingPongIntent what are the rules
+TellRulesOfPingPongIntent give me the rules
+TellRulesOfPingPongIntent tell us the rules
+TellRulesOfPingPongIntent how do you play
+TellRulesOfPingPongIntent tell me the rules of ping pong
+TellRulesOfPingPongIntent what are the rules of ping pong
+TellRulesOfPingPongIntent give me the rules of ping pong
+TellRulesOfPingPongIntent tell us the rules of ping pong
+TellRulesOfPingPongIntent how do you play ping pong
+
+LetsPlayIntent let's play
+
+GetNameIntent {PlayerName}
+GetNameIntent my first name is {PlayerName}
+
+ConfirmNameIntent confirmed
+
+WhoWonRallyIntent first serve goes to {PlayerName} 
+WhoWonRallyIntent first to serve will be {PlayerName} 
+WhoWonRallyIntent first to serve is {PlayerName}
+WhoWonRallyIntent {PlayerName} won the rally
+WhoWonRallyIntent {PlayerName} wins the rally
+WhoWonRallyIntent {PlayerName} serves first
+WhoWonRallyIntent {PlayerName} will serve
+WhoWonRallyIntent {PlayerName} will serve first
+WhoWonRallyIntent {PlayerName} is first to serve
+WhoWonRallyIntent {PlayerName} is the first to serve
+WhoWonRallyIntent {PlayerName} will be serving first
+WhoWonRallyIntent {PlayerName} has first serve
+WhoWonRallyIntent {PlayerName} has the first serve
+
+TeamRedWonRallyIntent first serve goes to team red 
+TeamRedWonRallyIntent first to serve will be team red
+TeamRedWonRallyIntent first to serve is team red
+TeamRedWonRallyIntent team red serves first
+TeamRedWonRallyIntent team red will serve
+TeamRedWonRallyIntent team red will serve first
+TeamRedWonRallyIntent team red is first to serve
+TeamRedWonRallyIntent team red is the first to serve
+TeamRedWonRallyIntent team red will be serving first
+TeamRedWonRallyIntent team red has first serve
+TeamRedWonRallyIntent team red has the first serve
+
+TeamBlueWonRallyIntent first serve goes to team blue 
+TeamBlueWonRallyIntent first to serve will be team blue
+TeamBlueWonRallyIntent first to serve is team blue
+TeamBlueWonRallyIntent team blue serves first
+TeamBlueWonRallyIntent team blue will serve
+TeamBlueWonRallyIntent team blue will serve first
+TeamBlueWonRallyIntent team blue is first to serve
+TeamBlueWonRallyIntent team blue is the first to serve
+TeamBlueWonRallyIntent team blue will be serving first
+TeamBlueWonRallyIntent team blue has first serve
+TeamBlueWonRallyIntent team blue has the first serve
+
+RedOrBlueWonRallyIntent {Color} won the rally
+
+SetSassMeterIntent set sass meter to {SassMeter}
+SetSassMeterIntent set sass meter at {SassMeter}
+SetSassMeterIntent set sass to {SassMeter}
+SetSassMeterIntent set sass at {SassMeter}
+SetSassMeterIntent set sass level to {SassMeter}
+SetSassMeterIntent set sass level at {SassMeter}
+SetSassMeterIntent set the sass meter to {SassMeter}
+SetSassMeterIntent set the sass meter at {SassMeter}
+SetSassMeterIntent set the sass to {SassMeter}
+SetSassMeterIntent set the sass at {SassMeter}
+SetSassMeterIntent set the sass level to {SassMeter}
+SetSassMeterIntent set the sass level at {SassMeter}
+SetSassMeterIntent set your sass meter to {SassMeter}
+SetSassMeterIntent set your sass meter at {SassMeter}
+SetSassMeterIntent set your sass to {SassMeter}
+SetSassMeterIntent set your sass at {SassMeter}
+SetSassMeterIntent set your sass level to {SassMeter}
+SetSassMeterIntent set your sass level at {SassMeter}
+SetSassMeterIntent set joke meter to {SassMeter}
+SetSassMeterIntent set joke meter at {SassMeter}
+SetSassMeterIntent set jokes to {SassMeter}
+SetSassMeterIntent set jokes at {SassMeter}
+SetSassMeterIntent set joke level to {SassMeter}
+SetSassMeterIntent set joke level at {SassMeter}
+SetSassMeterIntent set the joke meter to {SassMeter}
+SetSassMeterIntent set the joke meter at {SassMeter}
+SetSassMeterIntent set the jokes to {SassMeter}
+SetSassMeterIntent set the jokes at {SassMeter}
+SetSassMeterIntent set the joke level to {SassMeter}
+SetSassMeterIntent set the joke level at {SassMeter}
+SetSassMeterIntent set your joke meter to {SassMeter}
+SetSassMeterIntent set your joke meter at {SassMeter}
+SetSassMeterIntent set your jokes to {SassMeter}
+SetSassMeterIntent set your jokes at {SassMeter}
+SetSassMeterIntent set your joke level to {SassMeter}
+SetSassMeterIntent set your joke level at {SassMeter}
+SetSassMeterIntent set humor meter to {SassMeter}
+SetSassMeterIntent set humor meter at {SassMeter}
+SetSassMeterIntent set humor to {SassMeter}
+SetSassMeterIntent set humor at {SassMeter}
+SetSassMeterIntent set humor level to {SassMeter}
+SetSassMeterIntent set humor level at {SassMeter}
+SetSassMeterIntent set the humor meter to {SassMeter}
+SetSassMeterIntent set the humor meter at {SassMeter}
+SetSassMeterIntent set the humor to {SassMeter}
+SetSassMeterIntent set the humor at {SassMeter}
+SetSassMeterIntent set the humor level to {SassMeter}
+SetSassMeterIntent set the humor level at {SassMeter}
+SetSassMeterIntent set your humor meter to {SassMeter}
+SetSassMeterIntent set your humor meter at {SassMeter}
+SetSassMeterIntent set your humor to {SassMeter}
+SetSassMeterIntent set your humor at {SassMeter}
+SetSassMeterIntent set your humor level to {SassMeter}
+SetSassMeterIntent set your humor level at {SassMeter}
+SetSassMeterIntent make sass meter {SassMeter}
+SetSassMeterIntent make the sass meter {SassMeter}
+SetSassMeterIntent make sass level {SassMeter}
+SetSassMeterIntent make the sass level {SassMeter}
+SetSassMeterIntent make your sass meter {SassMeter}
+SetSassMeterIntent make your sass level {SassMeter}
+SetSassMeterIntent make joke level {SassMeter}
+SetSassMeterIntent make the joke level {SassMeter}
+SetSassMeterIntent make your joke level {SassMeter}
+SetSassMeterIntent make humor level {SassMeter}
+SetSassMeterIntent make the humor level {SassMeter}
+SetSassMeterIntent make your humor level {SassMeter}
+
+ChangeMatchLengthToLongIntent play a match where best three out of five games wins
+ChangeMatchLengthToLongIntent play a match with best three out of five games wins
+ChangeMatchLengthToLongIntent play a match with best three out of five games
+ChangeMatchLengthToLongIntent play a match with best three out of five 
+ChangeMatchLengthToLongIntent play best three out of five
+ChangeMatchLengthToLongIntent play long matches
+ChangeMatchLengthToLongIntent play longer matches
+
+ChangeMatchLengthToShortIntent play a single game match
+ChangeMatchLengthToShortIntent play a match with one game
+ChangeMatchLengthToShortIntent play a match with only one game
+ChangeMatchLengthToShortIntent play a match with just one game
+ChangeMatchLengthToShortIntent play one game
+ChangeMatchLengthToShortIntent play matches with just one game
+ChangeMatchLengthToShortIntent play matches with only one game
+ChangeMatchLengthToShortIntent play short matches
+ChangeMatchLengthToShortIntent play shorter matches
