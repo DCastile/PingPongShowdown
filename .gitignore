@@ -40,9 +40,7 @@ ECSconfig.json
 **/website
 *.crt
 *.key
-dynamodb
-pictures
-website
+supportFiles/
 
 
 
