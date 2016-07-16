@@ -33,21 +33,8 @@ function listenToButton(bdAddr) {
 							console.log('exec error running pointBlue.sh: ' + error);
 						}
 					});	
-				} else if (clickType == 'ButtonSingleClick' && bdAddr == '80:e4:da:71:6e:13'){
-						// request("http://10.x.x.xx/flic/xxx.php", function(error, response, body) {
-								// console.log(body);
-						// });
-						console.log('white single clicked')
-				} else if (clickType == 'ButtonDoubleClick' && bdAddr == '80:e4:da:71:6e:13'){ 
-						// request("http://10.x.x.xx/flic/xxx.php", function(error, response, body) {
-								// console.log(body);
-						// });
-						console.log('white double clicked')
 				} else{
-						//Longclick
-						// request("http://10.x.x.xx/flic/xxx.php", function(error, response, body) {
-								// console.log(body);
-						// });
+						// Longclick not used
 				}
 		});
 		cc.on("connectionStatusChanged", function(connectionStatus, disconnectReason) {
