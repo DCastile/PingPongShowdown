@@ -11,9 +11,6 @@ pids
 # node-waf configuration
 .lock-wscript
 
-# Dependency directory
-node_modules
-
 # Optional npm cache directory
 .npm
 
