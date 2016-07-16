@@ -41,6 +41,7 @@ ECSconfig.json
 *.crt
 *.key
 supportFiles/
+publishCoreApp.bat
 
 
 
