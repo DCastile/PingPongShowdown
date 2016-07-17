@@ -19,8 +19,9 @@ pids
 config.json
 AWSconfig.json
 **/creds.py
-*.crt
-*.key
+**/certs/*
+**/*.crt
+**/*.key
 supportFiles/
 publishCoreApp.bat
 
