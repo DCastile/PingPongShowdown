@@ -3,15 +3,13 @@ console.log('entering singlesPlayerHistory.js');
 var AWS = require("aws-sdk"),
 	async = require("async");
 
-
 var singlesPlayerHistory = (function () {
 
     return {
         getSinglesPlayerHistory: function (session, callback) {
 			console.log('entering playerHistory.getPlayerHistory function');			
 
-			//var PingpongMatchesTable = 'PingpongMatches'; // FOR PRODUCTION
-			var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT		
+			var PingpongMatchesTable = 'PingPongMatches'; 		
 			var docClient = new AWS.DynamoDB.DocumentClient();
 			var playerKey = parseInt(session.attributes.phoneKey);
 			console.log('playerKey = ' + playerKey);
@@ -25,7 +23,7 @@ var singlesPlayerHistory = (function () {
 					// pull data when player was Red1PlayerID
 					function(callback) {
 
-						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
+						var startOfTimeRange = 1457913145500; 
 						var rightNow = new Date().getTime();
 						var params = {				
 							TableName: PingpongMatchesTable,
@@ -51,7 +49,7 @@ var singlesPlayerHistory = (function () {
 					// pull data when player was Blue1PlayerID
 					function(callback) {
 
-						var startOfTimeRange = 1457913145500; // March 13, 2016 (time of dev)
+						var startOfTimeRange = 1457913145500; 
 						var rightNow = new Date().getTime();
 						var params = {				
 							TableName: PingpongMatchesTable,
@@ -110,22 +108,6 @@ var singlesPlayerHistory = (function () {
 					// rawStats[1] is an array of all the matches where the player was Blue1
 					rawStats.forEach(function(playerSlot) { // go through twice, once for Red1, once for Blue1
 						playerSlot.forEach(function(item) { // each item is a match that was found where the player was signed in
-
-							/*	This worked well to aggregate all red match data and all blue match data but player isn't always on that team				
-							for (var specificStat in stats) {
-								if (stats.hasOwnProperty(specificStat)) {
-									console.log('specificStat = ' + specificStat);
-									console.log('stats[specificStat] = ' + stats[specificStat]);
-									console.log('item.MatchData[specificStat] = ' + item.MatchData[specificStat]);													
-									if (!(item.MatchData[specificStat] === undefined || item.MatchData[specificStat] === null)) {
-										stats[specificStat] += item.MatchData[specificStat];
-									};							
-								};
-							};																
-							*/	
-							
-							//console.log('item = ' + JSON.stringify(item) );
-							//console.log('playerKey = ' + playerKey);
 													
 							if (item.MatchType == 'singles') { 	
 															
@@ -185,11 +167,7 @@ var singlesPlayerHistory = (function () {
 
 									if (!(item.MatchData.MaxRedPointStreak === undefined || item.MatchData.MaxRedPointStreak === null)) {
 										stats.MaxSinglesOrDoublesPointStreak += item.MatchData.MaxRedPointStreak;
-									};
-
-									//if (!(item.MatchData.RedTiebreaksWon === undefined || item.MatchData.RedTiebreaksWon === null)) {
-										//stats.SinglesOrDoublesTiebreaksWon += item.MatchData.RedTiebreaksWon;
-									//};																																										
+									};																																										
 									
 								} else if (item.Blue1PlayerID == playerKey) {
 									
@@ -243,12 +221,7 @@ var singlesPlayerHistory = (function () {
 
 									if (!(item.MatchData.MaxBluePointStreak === undefined || item.MatchData.MaxBluePointStreak === null)) {
 										stats.MaxSinglesOrDoublesPointStreak += item.MatchData.MaxBluePointStreak;
-									};
-
-									//if (!(item.MatchData.BlueTiebreaksWon === undefined || item.MatchData.BlueTiebreaksWon === null)) {
-										//stats.SinglesOrDoublesTiebreaksWon += item.MatchData.BlueTiebreaksWon;
-									//};							
-														
+									};																					
 								};
 							};								
 						});
@@ -273,7 +246,6 @@ var singlesPlayerHistory = (function () {
 				stats.NumberOfMatches = 0;
 				callback(stats);
 			};
-
 		}
     };		
 

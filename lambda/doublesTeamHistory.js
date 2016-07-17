@@ -9,8 +9,7 @@ var doublesTeamHistory = (function () {
         getDoublesTeamHistory: function (session, callback) {
 			console.log('entering doublesTeamHistory.getDoublesTeamHistory function');			
 
-			//var PingpongMatchesTable = 'MatchKeeperMatches'; // FOR PRODUCTION
-			var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT		
+			var PingpongMatchesTable = 'PingPongMatches'; 		
 			var docClient = new AWS.DynamoDB.DocumentClient();
 			var player1Key = parseInt(session.attributes.player1PhoneKey);
 			var player2Key = parseInt(session.attributes.player2PhoneKey);

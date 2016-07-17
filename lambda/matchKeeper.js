@@ -5,7 +5,7 @@ var AlexaSkill = require('./AlexaSkill'),
     eventHandlers = require('./eventHandlers'),
     intentHandlers = require('./intentHandlers');
 
-var APP_ID = "amzn1.echo-sdk-ams.app.8cbbec55-1a6a-4eaf-b2f8-c898f8a6be37";// PingPong MatchManager DEVELOPMENT app ID
+var APP_ID = "amzn1.echo-sdk-ams.app.0a9ab001-6952-44c7-bd63-61242470825a";// put your APP ID here
 var skillContext = {};
 
 var MatchKeeper = function () {

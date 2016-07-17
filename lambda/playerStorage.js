@@ -2,24 +2,19 @@
 'use strict';
 console.log('entering playerStorage.js');
 var AWS = require("aws-sdk");
-//var util = require('util');
 
 var playerStorage = (function () {
-    // var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 	var docClient = new AWS.DynamoDB.DocumentClient();
 	
-	//var PingpongPlayersTable = 'PingpongPlayers'; // FOR PRODUCTION
-	var PingpongPlayersTable = 'PingpongPlayers-Dev'; // FOR DEVELOPMENT	
+	var PingpongPlayersTable = 'PingPongPlayers'; 	
 
     /*
      * The Player class stores all Player info
      */
     function Player(session, loadedPlayer) {
     	console.log('entering Player function');
-		//console.log('this.data entering Player function = ' + this.data);
         if (loadedPlayer) {
             this.data = loadedPlayer;
-            //console.log('successfully passed loadedPlayer data in: ' + JSON.stringify(this.data));
         } else { // no existing player passed in, must be a call from newPlayer
 			console.log('no existing player passed in, must be a call from newPlayer');
 			
@@ -51,7 +46,6 @@ var playerStorage = (function () {
             console.log('entering Player.prototype save function');
 			
 			if (session) {
-				//console.log ('session in player save function = ' + JSON.stringify(session)); // see if session is populated
 				console.log('session.attributes.newPlayerPhone = ' + session.attributes.newPlayerPhone);
 			};
 			
@@ -112,11 +106,6 @@ var playerStorage = (function () {
 					newLoadedPlayer = 'playerNotFound';
                     callback(newLoadedPlayer); 
                 } else { 				
-                    
-					//console.log('util.inspect of newLoadedPlayer = ' + util.inspect(newLoadedPlayer) );					
-					//console.log('newLoadedPlayer.data = ' + JSON.stringify(newLoadedPlayer.data));
-					//console.log('util.inspect of session = ' + util.inspect(session) );
-
 					newLoadedPlayer = new Player( session, data.Item );
 					console.log('newLoadedPlayer obj created after loading = ' + JSON.stringify(newLoadedPlayer) );
                     session.attributes.newLoadedPlayer = newLoadedPlayer.data;

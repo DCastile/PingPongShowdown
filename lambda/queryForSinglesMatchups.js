@@ -4,8 +4,7 @@ console.log('entering queryForSinglesMatchups.js');
 var AWS = require("aws-sdk"),
 	async = require("async");
 	
-//var PingpongMatchesTable = 'PingpongMatches'; // FOR PRODUCTION
-var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT		
+var PingpongMatchesTable = 'PingPongMatches';		
 var docClient = new AWS.DynamoDB.DocumentClient();	
 var rawStats = [];
 

@@ -11,11 +11,9 @@ var matchStorage = (function () {
  
 	var docClient = new AWS.DynamoDB.DocumentClient();
 	
-	//var PingpongMatchesTable = 'PingpongMatches'; // FOR PRODUCTION
-	var PingpongMatchesTable = 'PingpongMatches-Dev'; // FOR DEVELOPMENT	
+	var PingpongMatchesTable = 'PingPongMatches'; 	
 	
-	//var PingpongDevicesTable = 'PingpongDevices'; // FOR PRODUCTION
-	var PingpongDevicesTable = 'PingpongDevices-Dev'; // FOR DEVELOPMENT	
+	var PingpongDevicesTable = 'PingPongDevices'; 	
 
     /*
      * The Match class stores all match states
