@@ -12,6 +12,7 @@ var device = awsIot.device({
 device
   .on('connect', function() {
     console.log('connected');
+	// replace the serial number below with your own AWS IoT button's SN
     device.subscribe({'iotbutton/G030JF056407W2QN':0}, function(error, result) {
       console.log(result);
     });
