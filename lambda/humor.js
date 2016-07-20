@@ -13,7 +13,6 @@ var humor = (function () {
 					
 		
 			jokesAtEndOfGame: [
-			//"<audio src='https://s3.amazonaws.com/pingpongsongs/toolittletoolate.mp3'/>" + pointLoser + ', I\'m afraid it was.',			
 			'Sure, ' + pointWinner + ' you beat ' + pointLoser + ', but you\'ll never be as good as a wall.',
 			'Keep practicing ' + pointLoser + ', victory requires payment in advance.<break time=\"0.3s\" /> Deep, huh?',
 			'What does ' + pointLoser + ' and a possum have in common? They both play, dead.',
@@ -37,24 +36,6 @@ var humor = (function () {
 						
 			jokesAfterAPoint: [			
 			
-			'Elvis, a little help here?' + "<audio src='https://s3.amazonaws.com/pingpongsongs/returntosender.mp3'/>", //+ '<phoneme alphabet="ipa" ph="oʊ.jˈæ">oh yeah</phoneme>',
-			pointLoser + ', do I hear something? ' + "<audio src='https://s3.amazonaws.com/pingpongsongs/AOBD2.mp3'/>" + 'Could of sworn I heard something.',
-			pointLoser + ' I believe you\'ll be OK, and look I\'m not the only one.' + "<audio src='https://s3.amazonaws.com/pingpongsongs/beokay.mp3'/>",
-			pointLoser + ', you need to hit your stride. Sing along: ' + "<audio src='https://s3.amazonaws.com/pingpongsongs/breakmystride.mp3'/>" + 'On second thought, sing it quietly in your head.',
-			"<audio src='https://s3.amazonaws.com/pingpongsongs/canttouchthis.mp3'/>" + 'my, my, my',
-			'Buck up ' + pointLoser + '. I\'ve got just the thing.' + "<audio src='https://s3.amazonaws.com/pingpongsongs/carryon.mp3'/>",
-			'What is it they say ' + pointLoser + '?' + "<audio src='https://s3.amazonaws.com/pingpongsongs/cestlavie.mp3'/>",
-			pointLoser + ', I found something to express where I think you\'re coming from.' + "<audio src='https://s3.amazonaws.com/pingpongsongs/dontdomelikethat.mp3'/>",
-			'OK I\'m pulling out the big guns here ' + pointLoser + ', the anthem for generations: ' + "<audio src='https://s3.amazonaws.com/pingpongsongs/dontstopbelievin.mp3'/>",
-			pointLoser + ', a wise man once said: ' + "<audio src='https://s3.amazonaws.com/pingpongsongs/dontworrybehappy.mp3'/>",
-			pointLoser + ', can you relate?' + "<audio src='https://s3.amazonaws.com/pingpongsongs/harddaysnight.mp3'/>",
-			"<audio src='https://s3.amazonaws.com/pingpongsongs/iceicebaby.mp3'/>" + 'slice slice baby',
-			pointWinner + ' is the new sheriff in town.' + "<audio src='https://s3.amazonaws.com/pingpongsongs/ifoughtthelaw.mp3'/>",
-			' just keep telling yourself ' + pointLoser + ', ' + "<audio src='https://s3.amazonaws.com/pingpongsongs/iwillsurvive.mp3'/>",
-			pointLoser + ' it\'s not the end. Listen to the wisdom of the children.' + "<audio src='https://s3.amazonaws.com/pingpongsongs/obladi.mp3'/>",
-			'Take it from old blue eyes ' + pointLoser + "<audio src='https://s3.amazonaws.com/pingpongsongs/thatslife.mp3'/>",
-			pointLoser + ' I found something to describe that spectacular performance.' + "<audio src='https://s3.amazonaws.com/pingpongsongs/wipeout.mp3'/>",
-			pointLoser + ', sing it right out' + "<audio src='https://s3.amazonaws.com/pingpongsongs/youdroppedabombonme.mp3'/>",
 			pointLoser + ', refuse to lose!',
 			pointLoser + ', you just got served.',
 			'come on ' + pointLoser + ', get fierce!',			
